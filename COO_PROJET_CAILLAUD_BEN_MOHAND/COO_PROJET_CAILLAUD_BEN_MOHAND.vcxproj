@@ -127,7 +127,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="COO_PROJET_CAILLAUD_BEN_MOHAND.cpp" />
+    <ClCompile Include="Figures\Brelan.cpp" />
+    <ClCompile Include="Figures\Cinq.cpp" />
+    <ClCompile Include="Figures\Deux.cpp" />
+    <ClCompile Include="play.cpp" />
+    <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="Figures\Un.cpp" />
+    <ClCompile Include="Lancer.cpp" />
+    <ClCompile Include="Figures\Trois.cpp" />
+    <ClCompile Include="Figures\Quatre.cpp" />
+    <ClCompile Include="Figures\Six.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Figures\Brelan.h" />
+    <ClInclude Include="Figures\Cinq.h" />
+    <ClInclude Include="Figures\Deux.h" />
+    <ClInclude Include="Figure.h" />
+    <ClInclude Include="Figures\Un.h" />
+    <ClInclude Include="Lancer.h" />
+    <ClInclude Include="Figures\Trois.h" />
+    <ClInclude Include="Figures\Quatre.h" />
+    <ClInclude Include="Figures\Six.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
