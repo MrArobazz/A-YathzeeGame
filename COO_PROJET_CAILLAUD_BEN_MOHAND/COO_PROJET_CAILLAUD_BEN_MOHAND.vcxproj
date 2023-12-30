@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,9 +129,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Figures\Chance.cpp" />
+    <ClCompile Include="Figures\Carre.cpp" />
     <ClCompile Include="Figures\Brelan.cpp" />
     <ClCompile Include="Figures\Cinq.cpp" />
     <ClCompile Include="Figures\Deux.cpp" />
+    <ClCompile Include="Figures\Full.cpp" />
+    <ClCompile Include="Figures\PetiteSuite.cpp" />
+    <ClCompile Include="Figures\GrandeSuite.cpp" />
     <ClCompile Include="play.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="Figures\Un.cpp" />
@@ -137,17 +144,24 @@
     <ClCompile Include="Figures\Trois.cpp" />
     <ClCompile Include="Figures\Quatre.cpp" />
     <ClCompile Include="Figures\Six.cpp" />
+    <ClCompile Include="Figures\Yams.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Figures\Chance.h" />
+    <ClInclude Include="Figures\Carre.h" />
     <ClInclude Include="Figures\Brelan.h" />
     <ClInclude Include="Figures\Cinq.h" />
     <ClInclude Include="Figures\Deux.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="Figures\Un.h" />
+    <ClInclude Include="Figures\Full.h" />
+    <ClInclude Include="Figures\GrandeSuite.h" />
     <ClInclude Include="Lancer.h" />
     <ClInclude Include="Figures\Trois.h" />
     <ClInclude Include="Figures\Quatre.h" />
     <ClInclude Include="Figures\Six.h" />
+    <ClInclude Include="Figures\PetiteSuite.h" />
+    <ClInclude Include="Figures\Yams.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

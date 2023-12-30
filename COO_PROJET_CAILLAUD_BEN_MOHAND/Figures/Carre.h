@@ -3,19 +3,19 @@
 #include "../Figure.h"
 
 template <typename T>
-class Brelan : public Figure
+class Carre : public Figure
 {
-	const T& trio;
+	const T& quatuor;
 public:
-	Brelan(const T& trio) : trio(trio) {};
+	Carre(const T& quatuor) : quatuor(quatuor) {};
 
 	int calculerPoints(const Lancer& lancer) const;
 };
 
 template<typename T>
-int Brelan<T>::calculerPoints(const Lancer& lancer) const
+int Carre<T>::calculerPoints(const Lancer& lancer) const
 {
 	if constexpr (std::is_base_of_v<Figure, T>)
-		return trio.calculerPoints(lancer);
+		return quatuor.calculerPoints(lancer);
 	return -1 /*Exception à faire*/;
 }
