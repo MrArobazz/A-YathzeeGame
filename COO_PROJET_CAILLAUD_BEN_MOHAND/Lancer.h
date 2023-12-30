@@ -10,13 +10,16 @@ class Lancer
 	public:
 		De() : num(std::rand() % 6 + 1), locked(false) {};
 		void lockOrUnlock(const bool& toLock) { locked = toLock; };
-		int roll();
+		void roll();
+		bool isLocked() const { return locked; };
+		int getValue() const { return num; };
 	};
 
 	std::vector<De> des;
 public:
-	Lancer() : des{} {};
+	Lancer();
 	void rollDices();
-	void lockOrUnlockDice(const int& ind, const bool& toLock);
+	void lockOrUnlockDice(const int& ind);
+	const std::vector<De>& getDices() const { return des; };
 };
 

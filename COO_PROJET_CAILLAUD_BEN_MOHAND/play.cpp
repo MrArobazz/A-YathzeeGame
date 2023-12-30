@@ -19,9 +19,18 @@
 #include "Figures/Un.h"
 #include "Figures/Yams.h"
 
+using namespace std;
 int main()
 {
-	std::srand(std::time(nullptr));
-	int test[5]{};
+	srand((unsigned int)time(nullptr));
+
+	Lancer l;
+	l.rollDices();
+	for (const auto& de : l.getDices()) {
+		cout << de.getValue() << " ";
+	}
+	cout << endl;
+	Full f;
+	cout << f.calculerPoints(l);
 
 }

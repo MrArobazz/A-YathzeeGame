@@ -2,14 +2,13 @@
 
 using namespace std;
 
-int Lancer::De::roll()
+void Lancer::De::roll()
 {
 	if (!locked)
 		num = rand() % 6 + 1;
-	return num;
 }
 
-Lancer::Lancer()
+Lancer::Lancer() : des{}
 {
 	for (int i = 0; i < 5; i++) {
 		De d;
@@ -24,7 +23,8 @@ void Lancer::rollDices()
 
 }
 
-void Lancer::lockOrUnlockDice(const int& ind, const bool& toLock)
+void Lancer::lockOrUnlockDice(const int& ind)
 {
-	des.at(ind).lockOrUnlock(toLock);
+	De& de = des.at(ind);
+	de.lockOrUnlock(!de.isLocked());
 }

@@ -2,5 +2,8 @@
 
 int Chance::calculerPoints(const Lancer& lancer) const
 {
-	return lancer.a + lancer.b + lancer.c + lancer.d + lancer.e;
+	int somme = 0;
+    for (const auto& de : lancer.getDices())
+        somme += de.getValue();
+    return somme;
 }
