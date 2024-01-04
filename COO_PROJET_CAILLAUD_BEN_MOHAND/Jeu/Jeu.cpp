@@ -65,8 +65,13 @@ void Jeu::tourdejeu() {
         do {
             cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
             cin >> position;
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Saisie invalide. Entrez une position." << endl;
+                continue;
+            }
             is_possible = j->setScore(*lancer, position);
-            
         } while (!is_possible);
 
         clear_screen();
