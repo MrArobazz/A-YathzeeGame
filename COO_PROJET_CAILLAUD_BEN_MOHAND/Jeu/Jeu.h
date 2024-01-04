@@ -4,6 +4,7 @@
 
 #pragma once
 #include "Joueur.h"
+#include <limits>
 
 class Jeu {
 private:
