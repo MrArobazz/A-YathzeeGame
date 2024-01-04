@@ -14,12 +14,12 @@ Section_Basse::Section_Basse() {
     Figure * f7 = new Chance();
 
 
-    section.push_back(Combinaison(*f1 , "Brelan Somme des 5 dés :"));
-    section.push_back(Combinaison(*f2 , "Carré Somme des 5 dés :"));
-    section.push_back(Combinaison(*f3 , "Full :"));
-    section.push_back(Combinaison(*f4 , "Petite Suite :"));
-    section.push_back(Combinaison(*f5 , "Grande Suite : "));
-    section.push_back(Combinaison(*f6 , "Yams :"));
+    section.push_back(Combinaison(*f1 , "Brelan Somme des 3 dés :"));
+    section.push_back(Combinaison(*f2 , "Carré Somme des 3 dés :"));
+    section.push_back(Combinaison(*f3 , "Full 25 Points :"));
+    section.push_back(Combinaison(*f4 , "Petite Suite 30 Points :"));
+    section.push_back(Combinaison(*f5 , "Grande Suite 40 Points : "));
+    section.push_back(Combinaison(*f6 , "Yams  50 Points :"));
     section.push_back(Combinaison(*f7 , "Chance Somme des 5 dés :"));
 }
 

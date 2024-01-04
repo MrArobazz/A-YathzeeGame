@@ -5,7 +5,7 @@
 #ifndef COO_PROJET_CAILLAUD_BEN_MOHAND_JOUEUR_H
 #define COO_PROJET_CAILLAUD_BEN_MOHAND_JOUEUR_H
 
-#include "Feuille_Score/Feuille_de_score.h"
+#include "../Feuille_Score/Feuille_de_score.h"
 
 class Joueur {
 private:
