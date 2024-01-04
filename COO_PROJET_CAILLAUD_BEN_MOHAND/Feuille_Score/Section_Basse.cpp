@@ -15,7 +15,7 @@ Section_Basse::Section_Basse() {
 
 
     section.push_back(Combinaison(*f1 , "Brelan Somme des 3 dés :"));
-    section.push_back(Combinaison(*f2 , "Carré Somme des 3 dés :"));
+    section.push_back(Combinaison(*f2 , "Carré Somme des 4 dés :"));
     section.push_back(Combinaison(*f3 , "Full 25 Points :"));
     section.push_back(Combinaison(*f4 , "Petite Suite 30 Points :"));
     section.push_back(Combinaison(*f5 , "Grande Suite 40 Points : "));

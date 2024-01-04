@@ -5,7 +5,7 @@
 #include <ctime>
 
 
-#include "../Jeu/Jeu.h"
+#include "Jeu/Jeu.h"
 
 
 using namespace std;

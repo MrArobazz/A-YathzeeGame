@@ -35,6 +35,7 @@ void Jeu::tourdejeu() {
                         lancer->lockOrUnlockDice(j - 1);
                     }
                 }
+                system("clear");
             }
             else
             {
@@ -63,6 +64,7 @@ void Jeu::tourdejeu() {
 
         joueurs[num_j]->affiche();
         lancer->remiseAzeroDe();
+        system("clear");
     }
     tour++;
 

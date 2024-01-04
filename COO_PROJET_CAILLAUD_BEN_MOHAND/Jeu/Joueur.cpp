@@ -8,6 +8,7 @@ Joueur::Joueur() {
     feuille_score = new Feuille_de_score();
     std::cout<<"Entrez votre Nom"<<std::endl;
     std::cin>>name;
+
 }
 
 bool Joueur::setScore(Lancer &lancer, unsigned int position) {
