@@ -4,11 +4,13 @@
 
 #include "Jeu.h"
 
+using namespace std;
+
 Jeu::Jeu() {
-    std::cout<<"A combien souhaitez-vous jouer ?";
+    cout << "A combien souhaitez-vous jouer ?" << endl;
     unsigned int nb_joueurs;
-    std::cin>>nb_joueurs;
-    for(int i = 0 ; i < nb_joueurs ; ++i)
+    cin >> nb_joueurs;
+    for(unsigned int i = 0 ; i < nb_joueurs ; ++i)
     {
         Joueur * j = new Joueur();
         joueurs.push_back(j);
@@ -17,62 +19,100 @@ Jeu::Jeu() {
 }
 
 void Jeu::tourdejeu() {
-    int to_lock;
-    std::cout<<std::endl<<"Tour de Jeu : "<<tour<<std::endl;
-    for(int num_j = 0 ; num_j < joueurs.size() ; ++num_j) {
+    clear_screen();
+    cout << "###Tour de Jeu : " << tour << "###" << endl;
+    for(Joueur *j : joueurs) {
+        cout << "##Pour le joueur : " << j->getName() << "##" << endl << endl;
+
         for (int i = 0; i <=2; ++i) {
             lancer->rollDices();
 
+            for (const auto& de : lancer->getDices()) {
+                std::cout << de.getValue() << " ";
+            }
+
             if (i < 2) {
-                for (const auto &de: lancer->getDices()) {
-                    std::cout << de.getValue() << " ";
+                cout << endl;
+                j->affichePreview(*lancer);
+                cout << endl << "Est-ce que ce lancer vous convient? (o/n)" << endl;
+                if (getPositiveAnswer())
+                    break;
+
+                short ind = 0;
+                for (const auto& de : lancer->getDices()) {
+                    ind++;
+                    if (de.isLocked())
+                        cout << "Voulez-vous liberer le de " << ind << "? (o/n)" << endl;
+                    else
+                        cout << "Voulez-vous bloquer le de " << ind << "? (o/n)" << endl;
+                    if (getPositiveAnswer())
+                        lancer->lockOrUnlockDice(ind-1);
                 }
-                std::cout << std::endl;
-                for (int j = 1; j <= 5; ++j) {
-                    std::cout << "Voulez-vous bloquer le dé : " << j << std::endl;
-                    std::cin >> to_lock;
-                    if (to_lock) {
-                        lancer->lockOrUnlockDice(j - 1);
-                    }
-                }
-                system("clear");
+                clear_screen();
             }
-            else
-            {
-                std::cout<<"Lancer Final"<<std::endl;
-
-                for (const auto &de: lancer->getDices()) {
-                    std::cout << de.getValue() << " ";
-                }
-                std::cout << std::endl;
-
-            }
-
         }
-
-        //Affichage des Combinaison a Jouer
-        joueurs[num_j]->affiche();
+        clear_screen();
+        cout << "Les des :" << endl;
+        for (const auto& de : lancer->getDices()) {
+            std::cout << de.getValue() << " ";
+        }
+        cout << endl << endl;
+        j->affichePreview(*lancer);
 
 
         bool is_possible = false;
         unsigned int position;
-        while (!is_possible) {
-            std::cout << "Quelle combinaison souhaitez-vous jouer?" << std::endl;
-            std::cin>>position;
-            is_possible = joueurs[num_j]->setScore(*lancer,position);
-        }
+        do {
+            cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
+            cin >> position;
+            is_possible = j->setScore(*lancer, position);
+            
+        } while (!is_possible);
 
-        joueurs[num_j]->affiche();
+        clear_screen();
+        cout << "Voici votre feuille de score a la fin du tour." << endl;
+        j->affiche();
         lancer->remiseAzeroDe();
-        system("clear");
+        cout << "Confirmez le passage au prochain joueur ou tour. (o)" << endl;
+        while (!getPositiveAnswer()) {};
+        clear_screen();
     }
     tour++;
 
 }
 
+void Jeu::clear_screen()
+{
+    system("cls||clear");
+}
+
+bool Jeu::getPositiveAnswer()
+{
+    char choix = 0;
+    bool saisieValide = false;
+
+    do {
+        cin >> choix;
+
+        if (choix == 'o' || choix == 'n') {
+            saisieValide = true;
+        }
+        else {
+            cout << "Réponse invalide. Veuillez réessayer." << endl;
+        }
+    } while (!saisieValide);
+
+    return (choix == 'o');
+}
+
 void Jeu::LancerJeu() {
-    while(tour < 13)
+    while(tour <= 13)
     {
         tourdejeu();
     }
+    cout << "Partie terminee. Voici les feuilles de scores de chaque joueur :" << endl;
+    for (Joueur* j : joueurs) {
+        j->affiche();
+    }
+    cout << endl << endl;
 }

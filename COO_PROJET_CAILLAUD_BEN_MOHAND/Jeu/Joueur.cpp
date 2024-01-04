@@ -3,11 +3,12 @@
 //
 
 #include "Joueur.h"
+using namespace std;
 
 Joueur::Joueur() {
     feuille_score = new Feuille_de_score();
-    std::cout<<"Entrez votre Nom"<<std::endl;
-    std::cin>>name;
+    cout << "Entrez votre Nom" << endl;
+    cin >> name;
 
 }
 
@@ -19,8 +20,19 @@ int Joueur::getScore() {
     return feuille_score->getScore();
 }
 
+std::string Joueur::getName()
+{
+    return name;
+}
+
 void Joueur::affiche() {
-    std::cout<<"Feuille de score de  : "<<name<<std::endl;
+    cout << "Feuille de score de : " << name << endl;
     feuille_score->affiche();
-    std::cout<<"Score Total : "<<feuille_score->getScore()<<std::endl;
+    cout << "Score Total : " << feuille_score->getScore() << endl << endl << endl;
+}
+
+void Joueur::affichePreview(Lancer& lancer)
+{
+    cout << "#===SCORES POSSIBLE===#" << endl;
+    feuille_score->affichePreview(lancer);
 }

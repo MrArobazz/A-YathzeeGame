@@ -11,11 +11,20 @@ int PetiteSuite::calculerPoints(const Lancer& lancer) const
     }
     std::sort(std::begin(desTries), std::end(desTries));
 
-    for (int i = 0; i < 2; ++i) {
-        if (desTries[i] + 1 != desTries[i + 1]) {
-            return 0;
+    int count = 0;
+    for (int i = 0; i <= 1; ++i) {
+        for (int j = i; j < 3 + i; ++j) {
+            if (desTries[j] + 1 == desTries[j + 1])
+                count++;
+            else {
+                count = 0;
+                break;
+            }
         }
-    }
 
-    return 30;
+        if (count >= 3)
+            return 30;
+    };
+
+    return 0;
 }

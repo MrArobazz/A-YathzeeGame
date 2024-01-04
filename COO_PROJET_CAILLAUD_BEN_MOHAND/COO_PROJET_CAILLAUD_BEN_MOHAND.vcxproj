@@ -129,6 +129,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Feuille_Score\Combinaison.cpp" />
+    <ClCompile Include="Feuille_Score\Feuille_de_score.cpp" />
+    <ClCompile Include="Feuille_Score\Section_Basse.cpp" />
+    <ClCompile Include="Feuille_Score\Section_Haute.cpp" />
     <ClCompile Include="Figures\Chance.cpp" />
     <ClCompile Include="Figures\Carre.cpp" />
     <ClCompile Include="Figures\Brelan.cpp" />
@@ -137,6 +141,8 @@
     <ClCompile Include="Figures\Full.cpp" />
     <ClCompile Include="Figures\PetiteSuite.cpp" />
     <ClCompile Include="Figures\GrandeSuite.cpp" />
+    <ClCompile Include="Jeu\Jeu.cpp" />
+    <ClCompile Include="Jeu\Joueur.cpp" />
     <ClCompile Include="play.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="Figures\Un.cpp" />
@@ -147,6 +153,10 @@
     <ClCompile Include="Figures\Yams.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Feuille_Score\Combinaison.h" />
+    <ClInclude Include="Feuille_Score\Feuille_de_score.h" />
+    <ClInclude Include="Feuille_Score\Section_Basse.h" />
+    <ClInclude Include="Feuille_Score\Section_Haute.h" />
     <ClInclude Include="Figures\Chance.h" />
     <ClInclude Include="Figures\Carre.h" />
     <ClInclude Include="Figures\Brelan.h" />
@@ -156,6 +166,8 @@
     <ClInclude Include="Figures\Un.h" />
     <ClInclude Include="Figures\Full.h" />
     <ClInclude Include="Figures\GrandeSuite.h" />
+    <ClInclude Include="Jeu\Jeu.h" />
+    <ClInclude Include="Jeu\Joueur.h" />
     <ClInclude Include="Lancer.h" />
     <ClInclude Include="Figures\Trois.h" />
     <ClInclude Include="Figures\Quatre.h" />

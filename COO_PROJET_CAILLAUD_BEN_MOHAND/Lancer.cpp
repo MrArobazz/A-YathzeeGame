@@ -22,6 +22,7 @@ Lancer::Lancer() : des{}
 
 void Lancer::rollDices()
 {
+	cout << "Le joueur lance ses des..." << endl;
 	for (De &d : des)
 		d.roll();
 

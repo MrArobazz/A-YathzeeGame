@@ -13,12 +13,12 @@ Section_Haute::Section_Haute() {
     Figure * f6 = new Six();
 
 
-    section.push_back(Combinaison(*f1 , "Somme des as obtenus :"));
-    section.push_back(Combinaison(*f2 , "Somme des deux obtenus :"));
-    section.push_back(Combinaison(*f3 , "Somme des trois obtenus :"));
-    section.push_back(Combinaison(*f4 , "Somme des quatre obtenus :"));
-    section.push_back(Combinaison(*f5 , "Somme des cinq obtenus :"));
-    section.push_back(Combinaison(*f6 , "Somme des six obtenus :"));
+    section.push_back(Combinaison(f1 , "Somme des as obtenus :"));
+    section.push_back(Combinaison(f2 , "Somme des deux obtenus :"));
+    section.push_back(Combinaison(f3 , "Somme des trois obtenus :"));
+    section.push_back(Combinaison(f4 , "Somme des quatre obtenus :"));
+    section.push_back(Combinaison(f5 , "Somme des cinq obtenus :"));
+    section.push_back(Combinaison(f6 , "Somme des six obtenus :"));
 
 
 }
@@ -43,7 +43,24 @@ std::string Section_Haute::getDescCombinaison(unsigned int position) {
 
 void Section_Haute::affiche() {
     for(int i = 0 ; i < section.size() ; ++i){
-        std::cout<<1+i<<" ";
+        std::cout<<1+i<<"-";
         section[i].affiche();
     }
+}
+
+void Section_Haute::setPreviewScore(Lancer& lancer, unsigned int position)
+{
+    section[position].setPreviewScore(lancer);
+}
+
+void Section_Haute::resetPreviewScores()
+{
+    for (Combinaison fig : section)
+        fig.resetPreviewScore();
+}
+
+void Section_Haute::affichePreview(unsigned int position)
+{
+    std::cout << 1 + position << "-";
+    section[position].affichePreview();
 }

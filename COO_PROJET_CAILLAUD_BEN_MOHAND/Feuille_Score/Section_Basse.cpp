@@ -5,8 +5,8 @@
 #include "Section_Basse.h"
 
 Section_Basse::Section_Basse() {
-    Figure * f1;
-    Figure * f2;
+    Figure * f1 = nullptr;
+    Figure * f2 = nullptr;
     Figure * f3 = new Full();
     Figure * f4 = new PetiteSuite();
     Figure * f5 = new GrandeSuite();
@@ -14,13 +14,13 @@ Section_Basse::Section_Basse() {
     Figure * f7 = new Chance();
 
 
-    section.push_back(Combinaison(*f1 , "Brelan Somme des 3 dés :"));
-    section.push_back(Combinaison(*f2 , "Carré Somme des 4 dés :"));
-    section.push_back(Combinaison(*f3 , "Full 25 Points :"));
-    section.push_back(Combinaison(*f4 , "Petite Suite 30 Points :"));
-    section.push_back(Combinaison(*f5 , "Grande Suite 40 Points : "));
-    section.push_back(Combinaison(*f6 , "Yams  50 Points :"));
-    section.push_back(Combinaison(*f7 , "Chance Somme des 5 dés :"));
+    section.push_back(Combinaison(f1 , "Brelan (somme des 3 des) :"));
+    section.push_back(Combinaison(f2 , "Carre (somme des 4 des) :"));
+    section.push_back(Combinaison(f3 , "Full (25 points) :"));
+    section.push_back(Combinaison(f4 , "Petite Suite (30 points) :"));
+    section.push_back(Combinaison(f5 , "Grande Suite (40 points) : "));
+    section.push_back(Combinaison(f6 , "Yams (50 points) :"));
+    section.push_back(Combinaison(f7 , "Chance (Somme des 5 des) :"));
 }
 
 void Section_Basse::setScore(Lancer &lancer, unsigned int position) {
@@ -56,7 +56,38 @@ std::string Section_Basse::getDescCombinaison(unsigned int position) {
 
 void Section_Basse::affiche() {
     for(int i = 0 ; i < section.size() ; ++i){
-        std::cout<<7+i<<" ";
+        std::cout<<7+i<<"-";
         section[i].affiche();
     }
+}
+
+void Section_Basse::setPreviewScore(Lancer& lancer, unsigned int position)
+{
+    if (position == 0)
+    {
+        section[0].setPreviewBrelan(lancer);
+    }
+    else
+    {
+        if (position == 1)
+        {
+            section[1].setPreviewCarre(lancer);
+        }
+        else
+        {
+            section[position].setPreviewScore(lancer);
+        }
+    }
+}
+
+void Section_Basse::resetPreviewScores()
+{
+    for (Combinaison fig : section)
+        fig.resetPreviewScore();
+}
+
+void Section_Basse::affichePreview(unsigned int position)
+{
+    std::cout << 7 + position << "-";
+    section[position].affichePreview();
 }

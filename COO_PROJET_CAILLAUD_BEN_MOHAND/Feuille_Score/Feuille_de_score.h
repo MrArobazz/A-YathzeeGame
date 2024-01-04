@@ -2,9 +2,7 @@
 // Created by macine on 03/01/24.
 //
 
-#ifndef COO_PROJET_CAILLAUD_BEN_MOHAND_FEUILLE_DE_SCORE_H
-#define COO_PROJET_CAILLAUD_BEN_MOHAND_FEUILLE_DE_SCORE_H
-
+#pragma once
 #include "Section_Haute.h"
 #include "Section_Basse.h"
 
@@ -21,7 +19,5 @@ public:
     bool setScore(Lancer & lancer , unsigned int position);
     int getScore();
     void affiche();
+    void affichePreview(Lancer& lancer);
 };
-
-
-#endif //COO_PROJET_CAILLAUD_BEN_MOHAND_FEUILLE_DE_SCORE_H

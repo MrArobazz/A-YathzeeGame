@@ -11,7 +11,7 @@ int GrandeSuite::calculerPoints(const Lancer& lancer) const
     }
     std::sort(std::begin(desTries), std::end(desTries));
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 4; ++i) {
         if (desTries[i] + 1 != desTries[i + 1]) {
             return 0;
         }

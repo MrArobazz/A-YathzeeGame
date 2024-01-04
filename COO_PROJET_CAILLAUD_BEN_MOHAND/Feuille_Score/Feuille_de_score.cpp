@@ -10,7 +10,7 @@ Feuille_de_score::Feuille_de_score() {
 }
 
 bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
-    if(position <= 14 && position > 0)
+    if(position >= 1 && position <= 13)
     {
         if(position <=6)
         {
@@ -18,7 +18,6 @@ bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
             {
                 section_h->setScore(lancer,position-1);
                 score_total = section_h->getScore() + section_b->getScore();
-                section_h->getDescCombinaison(position);
                 return true;
             }
 
@@ -29,7 +28,6 @@ bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
             {
                 section_b->setScore(lancer,position-7);
                 score_total = section_h->getScore() + section_b->getScore();
-                std::cout<<section_b->getDescCombinaison(position-7)<<std::endl;
                 return true;
             }
         }
@@ -44,4 +42,29 @@ int Feuille_de_score::getScore() {
 void Feuille_de_score::affiche() {
     section_h->affiche();
     section_b->affiche();
+}
+
+void Feuille_de_score::affichePreview(Lancer& lancer)
+{
+    for (int position = 1; position <= 13; position++)
+    {
+        if (position <= 6)
+        {
+            if (section_h->getScorePosition(position - 1) == -1)
+            {
+                section_h->setPreviewScore(lancer, position - 1);
+                section_h->affichePreview(position - 1);
+                section_h->resetPreviewScores();
+            }
+        }
+        else
+        {
+            if (section_b->getScorePosition(position - 7) == -1)
+            {
+                section_b->setPreviewScore(lancer, position - 7);
+                section_b->affichePreview(position - 7);
+                section_b->resetPreviewScores();
+            }
+        }
+    }
 }

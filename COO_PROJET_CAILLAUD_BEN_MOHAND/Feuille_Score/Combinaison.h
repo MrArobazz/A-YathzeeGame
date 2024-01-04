@@ -2,9 +2,7 @@
 // Created by macine on 03/01/24.
 //
 
-#ifndef COO_PROJET_CAILLAUD_BEN_MOHAND_COMBINAISON_H
-#define COO_PROJET_CAILLAUD_BEN_MOHAND_COMBINAISON_H
-
+#pragma once
 #include "../Figures/Brelan.h"
 #include "../Figures/Carre.h"
 #include "../Figures/Chance.h"
@@ -22,19 +20,21 @@
 
 class Combinaison {
 private:
-    const Figure &figure;
-    const std::string Description;
-    int Score = -1;
+    const Figure* figure;
+    const std::string description;
+    int score = -1;
+    int preview_score = 0;
 public:
-    Combinaison(Figure &f,std::string Desc) : figure(f),Description(Desc) {};
-    void setScore(Lancer & lancer);
+    Combinaison(Figure *f,std::string Desc) : figure(f),description(Desc) {};
+    void setScore(Lancer& lancer);
+    void setPreviewScore(Lancer& lancer);
+    void resetPreviewScore();
     int getScore();
+    void setPreviewBrelan(Lancer& lancer);
+    void setPreviewCarre(Lancer& lancer);
     void setBrelan(Lancer & lancer);
     void setCarre(Lancer & lancer);
     std::string getDesc();
     void affiche();
-
+    void affichePreview();
 };
-
-
-#endif //COO_PROJET_CAILLAUD_BEN_MOHAND_COMBINAISON_H

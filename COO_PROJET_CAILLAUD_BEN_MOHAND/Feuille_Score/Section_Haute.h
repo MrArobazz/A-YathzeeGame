@@ -2,9 +2,7 @@
 // Created by macine on 03/01/24.
 //
 
-#ifndef COO_PROJET_CAILLAUD_BEN_MOHAND_SECTION_HAUTE_H
-#define COO_PROJET_CAILLAUD_BEN_MOHAND_SECTION_HAUTE_H
-
+#pragma once
 #include "Combinaison.h"
 
 class Section_Haute {
@@ -21,7 +19,7 @@ class Section_Haute {
         std::string getDescCombinaison(unsigned int position);
         void affiche();
 
+        void setPreviewScore(Lancer& lancer, unsigned int position);
+        void resetPreviewScores();
+        void affichePreview(unsigned int position);
 };
-
-
-#endif //COO_PROJET_CAILLAUD_BEN_MOHAND_SECTION_HAUTE_H
