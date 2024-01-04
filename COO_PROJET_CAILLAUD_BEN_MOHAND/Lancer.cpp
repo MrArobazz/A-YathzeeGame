@@ -8,6 +8,10 @@ void Lancer::De::roll()
 		num = rand() % 6 + 1;
 }
 
+void Lancer::De::unlock(){
+    locked = false;
+}
+
 Lancer::Lancer() : des{}
 {
 	for (int i = 0; i < 5; i++) {
@@ -18,7 +22,7 @@ Lancer::Lancer() : des{}
 
 void Lancer::rollDices()
 {
-	for (De d : des)
+	for (De &d : des)
 		d.roll();
 
 }
@@ -27,4 +31,9 @@ void Lancer::lockOrUnlockDice(const int& ind)
 {
 	De& de = des.at(ind);
 	de.lockOrUnlock(!de.isLocked());
+}
+
+void Lancer::remiseAzeroDe() {
+    for(De &d :des)
+        d.unlock();
 }

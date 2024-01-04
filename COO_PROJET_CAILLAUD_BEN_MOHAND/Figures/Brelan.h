@@ -17,5 +17,5 @@ int Brelan<T>::calculerPoints(const Lancer& lancer) const
 {
 	if constexpr (std::is_base_of_v<Figure, T>)
 		return trio.calculerPoints(lancer);
-	return -1 /*Exception à faire*/;
+	return -1 /*Exception ï¿½ faire*/;
 }

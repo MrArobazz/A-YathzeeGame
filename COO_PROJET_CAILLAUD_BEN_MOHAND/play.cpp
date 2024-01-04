@@ -19,18 +19,44 @@
 #include "Figures/Un.h"
 #include "Figures/Yams.h"
 
+#include "Feuille_Score/Feuille_de_score.h"
+#include "Jeu/Joueur.h"
+
+#include "Jeu/Jeu.h"
+
+
 using namespace std;
 int main()
 {
-	srand((unsigned int)time(nullptr));
+	srand(time(nullptr));
 
+    /*
 	Lancer l;
 	l.rollDices();
 	for (const auto& de : l.getDices()) {
 		cout << de.getValue() << " ";
 	}
 	cout << endl;
-	Full f;
-	cout << f.calculerPoints(l);
+	//Figure * f = new Full();
+	//cout << f->calculerPoints(l);
+
+    Joueur j;
+
+    std::cout<<"le score pour est : "<<j.getScore()<<std::endl;
+
+    int i;
+
+    std::cout<<"case a jouer"<<std::endl;
+    cin>>i;
+
+    j.setScore(l,i);
+
+    std::cout<<"le score pour est : "<<j.getScore()<<std::endl;
+
+     */
+
+
+    Jeu J;
+    J.LancerJeu();
 
 }
