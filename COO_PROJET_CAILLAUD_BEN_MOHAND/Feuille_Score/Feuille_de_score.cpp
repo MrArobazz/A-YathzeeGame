@@ -54,7 +54,6 @@ void Feuille_de_score::affichePreview(Lancer& lancer)
             {
                 section_h->setPreviewScore(lancer, position - 1);
                 section_h->affichePreview(position - 1);
-                section_h->resetPreviewScores();
             }
         }
         else
@@ -63,10 +62,11 @@ void Feuille_de_score::affichePreview(Lancer& lancer)
             {
                 section_b->setPreviewScore(lancer, position - 7);
                 section_b->affichePreview(position - 7);
-                section_b->resetPreviewScores();
             }
         }
     }
+    section_h->resetPreviewScores();
+    section_b->resetPreviewScores();
 }
 
 Feuille_de_score::~Feuille_de_score() {
