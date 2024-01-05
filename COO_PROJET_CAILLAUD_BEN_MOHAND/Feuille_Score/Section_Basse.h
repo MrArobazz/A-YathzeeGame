@@ -12,6 +12,9 @@ private:
     std::vector<Combinaison> section;
     int score_section = 0;
     bool locked = true;
+    bool bonus = false;
+    void addBonus();
+
 public:
     Section_Basse();
     void setScore(Lancer & lancer, unsigned int position);
@@ -19,6 +22,7 @@ public:
     int getScorePosition(unsigned int position);
     std::string getDescCombinaison(unsigned int position);
     void affiche();
+    void bonusYams();
 
     void setPreviewScore(Lancer& lancer, unsigned int position);
     void resetPreviewScores();

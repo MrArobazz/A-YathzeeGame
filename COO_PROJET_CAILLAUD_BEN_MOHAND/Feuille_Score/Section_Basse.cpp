@@ -102,3 +102,17 @@ Section_Basse::~Section_Basse() {
         delete f;
     }
 }
+
+void Section_Basse::addBonus() {
+    if(!bonus){
+        score_section+= 100;
+        bonus = true;
+    }
+}
+
+void Section_Basse::bonusYams() {
+    if(section[5].getScore() == 50)
+    {
+        addBonus();
+    }
+}

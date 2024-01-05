@@ -12,6 +12,11 @@ Feuille_de_score::Feuille_de_score() {
 bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
     if(position >= 1 && position <= 13)
     {
+        Yams y;
+        if(y.calculerPoints(lancer))
+        {
+            section_b->bonusYams();
+        }
         if(position <=6)
         {
             if(section_h->getScorePosition(position-1) == -1)
