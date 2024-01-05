@@ -36,3 +36,7 @@ void Joueur::affichePreview(Lancer& lancer)
     cout << "#===SCORES POSSIBLE===#" << endl;
     feuille_score->affichePreview(lancer);
 }
+
+Joueur::~Joueur() {
+    delete feuille_score;
+}

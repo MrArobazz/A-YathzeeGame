@@ -20,4 +20,5 @@ public:
     int getScore();
     void affiche();
     void affichePreview(Lancer& lancer);
+    ~Feuille_de_score();
 };

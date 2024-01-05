@@ -18,5 +18,6 @@ private:
 public :
     Jeu();
     void LancerJeu();
+    ~Jeu();
 
 };

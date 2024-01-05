@@ -8,6 +8,7 @@
 class Section_Basse {
 
 private:
+    std::vector<Figure * > figures;
     std::vector<Combinaison> section;
     int score_section = 0;
     bool locked = true;
@@ -22,4 +23,6 @@ public:
     void setPreviewScore(Lancer& lancer, unsigned int position);
     void resetPreviewScores();
     void affichePreview(unsigned int position);
+
+    ~Section_Basse();
 };

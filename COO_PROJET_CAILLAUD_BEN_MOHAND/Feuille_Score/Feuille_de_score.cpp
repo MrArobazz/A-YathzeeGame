@@ -68,3 +68,8 @@ void Feuille_de_score::affichePreview(Lancer& lancer)
         }
     }
 }
+
+Feuille_de_score::~Feuille_de_score() {
+    delete section_b;
+    delete section_h;
+}

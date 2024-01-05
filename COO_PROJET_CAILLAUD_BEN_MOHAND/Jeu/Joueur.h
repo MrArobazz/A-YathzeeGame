@@ -17,4 +17,6 @@ public:
     void affiche();
 
     void affichePreview(Lancer& lancer);
+
+    ~Joueur();
 };

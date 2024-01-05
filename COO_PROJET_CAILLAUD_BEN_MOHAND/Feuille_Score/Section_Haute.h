@@ -8,6 +8,7 @@
 class Section_Haute {
 
     private:
+        std::vector<Figure * > figures;
         std::vector<Combinaison> section;
         int score_section = 0;
         int bonus = 35;
@@ -22,4 +23,6 @@ class Section_Haute {
         void setPreviewScore(Lancer& lancer, unsigned int position);
         void resetPreviewScores();
         void affichePreview(unsigned int position);
+
+        ~Section_Haute();
 };

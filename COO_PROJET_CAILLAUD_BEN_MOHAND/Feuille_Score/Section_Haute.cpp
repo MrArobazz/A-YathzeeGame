@@ -6,11 +6,17 @@
 
 Section_Haute::Section_Haute() {
     Figure * f1 = new Un();
+    figures.push_back(f1);
     Figure * f2 = new Deux();
+    figures.push_back(f2);
     Figure * f3 = new Trois();
+    figures.push_back(f3);
     Figure * f4 = new Quatre();
+    figures.push_back(f4);
     Figure * f5 = new Cinq();
+    figures.push_back(f5);
     Figure * f6 = new Six();
+    figures.push_back(f6);
 
 
     section.push_back(Combinaison(f1 , "Somme des as obtenus :"));
@@ -63,4 +69,11 @@ void Section_Haute::affichePreview(unsigned int position)
 {
     std::cout << 1 + position << "-";
     section[position].affichePreview();
+}
+
+Section_Haute::~Section_Haute() {
+    for(Figure * f :figures)
+    {
+        delete f;
+    }
 }

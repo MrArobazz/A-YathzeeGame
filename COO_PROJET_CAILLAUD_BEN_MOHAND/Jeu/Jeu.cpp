@@ -72,6 +72,7 @@ void Jeu::tourdejeu() {
                 continue;
             }
             is_possible = j->setScore(*lancer, position);
+            
         } while (!is_possible);
 
         clear_screen();
@@ -88,7 +89,7 @@ void Jeu::tourdejeu() {
 
 void Jeu::clear_screen()
 {
-    system("cls||clear");
+    //system("cls||clear");
 }
 
 bool Jeu::getPositiveAnswer()
@@ -120,4 +121,12 @@ void Jeu::LancerJeu() {
         j->affiche();
     }
     cout << endl << endl;
+}
+
+Jeu::~Jeu() {
+    delete lancer;
+    for(int i = 0 ;i < joueurs.size() ; ++i)
+    {
+        delete joueurs[i];
+    }
 }

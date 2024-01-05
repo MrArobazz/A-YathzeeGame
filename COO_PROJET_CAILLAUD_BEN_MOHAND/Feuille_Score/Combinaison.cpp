@@ -213,3 +213,5 @@ void Combinaison::affichePreview()
 {
     std::cout << description << " " << preview_score << std::endl;
 }
+
+

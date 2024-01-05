@@ -8,10 +8,15 @@ Section_Basse::Section_Basse() {
     Figure * f1 = nullptr;
     Figure * f2 = nullptr;
     Figure * f3 = new Full();
+    figures.push_back(f3);
     Figure * f4 = new PetiteSuite();
+    figures.push_back(f4);
     Figure * f5 = new GrandeSuite();
+    figures.push_back(f5);
     Figure * f6 = new Yams();
+    figures.push_back(f6);
     Figure * f7 = new Chance();
+    figures.push_back(f7);
 
 
     section.push_back(Combinaison(f1 , "Brelan (somme des 3 des) :"));
@@ -90,4 +95,10 @@ void Section_Basse::affichePreview(unsigned int position)
 {
     std::cout << 7 + position << "-";
     section[position].affichePreview();
+}
+
+Section_Basse::~Section_Basse() {
+    for(Figure * f :figures) {
+        delete f;
+    }
 }
