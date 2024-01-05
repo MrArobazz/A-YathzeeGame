@@ -11,7 +11,7 @@
 using namespace std;
 int main()
 {
-	srand(time(nullptr));
+	srand((unsigned int)time(nullptr));
     Jeu J;
     J.LancerJeu();
 }

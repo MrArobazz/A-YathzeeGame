@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4afb6a2b-2cba-4d0b-a126-e033ce64f77d}</ProjectGuid>
+    <ProjectGuid>{EACA575A-0DBD-4C0A-98F7-27A1CF1EAA82}</ProjectGuid>
     <RootNamespace>COOPROJETCAILLAUDBENMOHAND</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>YathzeeGame</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
