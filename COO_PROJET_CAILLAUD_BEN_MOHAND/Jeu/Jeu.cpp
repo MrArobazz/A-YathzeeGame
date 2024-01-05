@@ -7,11 +7,26 @@
 using namespace std;
 
 Jeu::Jeu() {
-    cout << "A combien souhaitez-vous jouer ?" << endl;
-    unsigned int nb_joueurs;
-    cin >> nb_joueurs;
-    for(unsigned int i = 0 ; i < nb_joueurs ; ++i)
+
+    unsigned int nb_joueurs = 0;
+    do {
+        cout << "A combien souhaitez-vous jouer ?" << endl;
+        cin >> nb_joueurs;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Saisie invalide. Entrez une position." << endl;
+            continue;
+        }
+        if (nb_joueurs > 8) {
+            cout << "Trop de joueurs. La limite est de 8." << endl;
+            nb_joueurs = 0;
+        }
+    } while (nb_joueurs == 0);
+
+    for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
     {
+        cout << "Joueur numero " << i << ", " << endl;
         Joueur * j = new Joueur();
         joueurs.push_back(j);
     }
@@ -89,7 +104,7 @@ void Jeu::tourdejeu() {
 
 void Jeu::clear_screen()
 {
-    //system("cls||clear");
+    system("cls||clear");
 }
 
 bool Jeu::getPositiveAnswer()
@@ -121,6 +136,8 @@ void Jeu::LancerJeu() {
         j->affiche();
     }
     cout << endl << endl;
+    cout << "Partie terminée. Les feuilles de scores sont au dessus. Confirmez la fermeture de la fenetre." << endl;
+    while (!getPositiveAnswer()) {};
 }
 
 Jeu::~Jeu() {

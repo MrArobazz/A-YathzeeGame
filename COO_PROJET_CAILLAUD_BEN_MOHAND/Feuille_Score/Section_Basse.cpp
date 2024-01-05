@@ -21,10 +21,10 @@ Section_Basse::Section_Basse() {
 
     section.push_back(Combinaison(f1 , "Brelan (somme des 3 des) :"));
     section.push_back(Combinaison(f2 , "Carre (somme des 4 des) :"));
-    section.push_back(Combinaison(f3 , "Full (25 points) :"));
-    section.push_back(Combinaison(f4 , "Petite Suite (30 points) :"));
-    section.push_back(Combinaison(f5 , "Grande Suite (40 points) : "));
-    section.push_back(Combinaison(f6 , "Yams (50 points) :"));
+    section.push_back(Combinaison(f3 , "Full :"));
+    section.push_back(Combinaison(f4 , "Petite Suite :"));
+    section.push_back(Combinaison(f5 , "Grande Suite : "));
+    section.push_back(Combinaison(f6 , "Yams :"));
     section.push_back(Combinaison(f7 , "Chance (Somme des 5 des) :"));
 }
 
