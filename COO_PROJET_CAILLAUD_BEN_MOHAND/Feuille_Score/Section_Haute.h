@@ -11,7 +11,7 @@ class Section_Haute {
         std::vector<Figure * > figures;
         std::vector<Combinaison> section;
         int score_section = 0;
-        int bonus = 35;
+        bool bonus = false;
     public:
         Section_Haute();
         void setScore(Lancer & lancer , unsigned int position);

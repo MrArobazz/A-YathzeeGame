@@ -33,6 +33,11 @@ Section_Haute::Section_Haute() {
 void Section_Haute::setScore(Lancer &lancer , unsigned int position) {
         section[position].setScore(lancer);
         score_section += section[position].getScore();
+    if(score_section >= 63 && !bonus)
+    {
+        score_section += 35;
+        bonus = true;
+    }
 }
 
 int Section_Haute::getScore() {
@@ -52,6 +57,10 @@ void Section_Haute::affiche() {
         std::cout<<1+i<<"-";
         section[i].affiche();
     }
+    if(bonus){
+        std::cout<<std::endl<<"BONUS  35 Points Acquis"<<std::endl<<std::endl;
+    }
+
 }
 
 void Section_Haute::setPreviewScore(Lancer& lancer, unsigned int position)
