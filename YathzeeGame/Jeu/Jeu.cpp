@@ -9,25 +9,41 @@ using namespace std;
 Jeu::Jeu() {
 
     unsigned int nb_joueurs = 0;
+    unsigned int mode = 0 ;
     do {
         cout << "A combien souhaitez-vous jouer ?" << endl;
         cin >> nb_joueurs;
+
         if (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Saisie invalide. Entrez une position." << endl;
+            cout << "Saisie invalide :  Nombre Joueur invalide" << endl;
+            continue;
+        }
+        cout << "Choisir un Mode de Jeu"<<endl;
+        cout << "1 : mode Facile"<<endl;
+        cout << "2 : mode Normal"<<endl;
+        cout << "3 : mode Difficile"<<endl;
+        cout << "4 : mode Hardcore"<<endl;
+        cin >> mode;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Saisie invalide : Mode Invalide" << endl;
             continue;
         }
         if (nb_joueurs > 8) {
             cout << "Trop de joueurs. La limite est de 8." << endl;
             nb_joueurs = 0;
         }
-    } while (nb_joueurs == 0);
+        mode_jeu = mode ;
+        cout<<mode_jeu<<endl;
+    } while (nb_joueurs == 0 || (mode<1 && mode > 4)) ;
 
     for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
     {
         cout << "Joueur numero " << i << ", " << endl;
-        Joueur * j = new Joueur();
+        Joueur * j = new Joueur(mode_jeu);
         joueurs.push_back(j);
     }
     lancer = new Lancer();
@@ -77,20 +93,33 @@ void Jeu::tourdejeu() {
 
         bool is_possible = false;
         unsigned int position;
-        do {
-            cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
-            cin >> position;
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Saisie invalide. Entrez une position." << endl;
-                continue;
-            }
-            is_possible = j->setScore(*lancer, position);
-            
-        } while (!is_possible);
+
+        if(mode_jeu!=3 && mode_jeu!=4) {
+            do {
+                cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
+                cin >> position;
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Saisie invalide. Entrez une position." << endl;
+                    continue;
+                }
+                is_possible = j->setScore(*lancer, position);
+
+            } while (!is_possible);
+        }
+        else
+        {
+            j->setScore(*lancer);
+        }
+
 
         clear_screen();
+        cout << "Dernier Lancer des des :" << endl;
+        for (const auto& de : lancer->getDices()) {
+            std::cout << de.getValue() << " ";
+        }
+        cout << endl << endl;
         cout << "Voici votre feuille de score a la fin du tour." << endl;
         j->affiche();
         lancer->remiseAzeroDe();

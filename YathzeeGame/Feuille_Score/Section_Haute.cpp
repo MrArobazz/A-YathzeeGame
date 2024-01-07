@@ -33,6 +33,7 @@ Section_Haute::Section_Haute() {
 void Section_Haute::setScore(Lancer &lancer , unsigned int position) {
         section[position].setScore(lancer);
         score_section += section[position].getScore();
+        nb_combinaison_restante--;
     if(score_section >= 63 && !bonus)
     {
         score_section += 35;
@@ -48,9 +49,6 @@ int Section_Haute::getScorePosition(unsigned int position) {
     return section[position].getScore();
 }
 
-std::string Section_Haute::getDescCombinaison(unsigned int position) {
-    return section[position].getDesc();
-}
 
 void Section_Haute::affiche() {
     for(int i = 0 ; i < section.size() ; ++i){
@@ -85,4 +83,8 @@ Section_Haute::~Section_Haute() {
     {
         delete f;
     }
+}
+
+bool Section_Haute::is_full() {
+    return nb_combinaison_restante == 0 ;
 }

@@ -12,17 +12,19 @@ class Section_Haute {
         std::vector<Combinaison> section;
         int score_section = 0;
         bool bonus = false;
+        int nb_combinaison_restante = 6;
     public:
         Section_Haute();
         void setScore(Lancer & lancer , unsigned int position);
         int getScore();
         int getScorePosition(unsigned int position);
-        std::string getDescCombinaison(unsigned int position);
         void affiche();
 
         void setPreviewScore(Lancer& lancer, unsigned int position);
         void resetPreviewScores();
         void affichePreview(unsigned int position);
+
+        bool is_full();
 
         ~Section_Haute();
 };

@@ -9,9 +9,11 @@ class Joueur {
 private:
     Feuille_de_score* feuille_score;
     std::string name;
+    unsigned int mode_jeu;
 public:
-    Joueur();
+    Joueur(unsigned int mode);
     bool setScore(Lancer & lancer , unsigned int position);
+    void setScore(Lancer & lancer);
     int getScore();
     std::string getName();
     void affiche();

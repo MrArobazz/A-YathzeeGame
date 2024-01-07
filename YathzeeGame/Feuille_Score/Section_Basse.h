@@ -11,7 +11,7 @@ private:
     std::vector<Figure * > figures;
     std::vector<Combinaison> section;
     int score_section = 0;
-    bool locked = true;
+    bool locked = false;
     bool bonus = false;
     void addBonus();
 
@@ -20,9 +20,11 @@ public:
     void setScore(Lancer & lancer, unsigned int position);
     int getScore();
     int getScorePosition(unsigned int position);
-    std::string getDescCombinaison(unsigned int position);
     void affiche();
     void bonusYams();
+    bool islocked();
+    void unlock();
+    void lock();
 
     void setPreviewScore(Lancer& lancer, unsigned int position);
     void resetPreviewScores();

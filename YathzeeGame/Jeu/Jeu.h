@@ -10,6 +10,7 @@ class Jeu {
 private:
     Lancer* lancer;
     std::vector<Joueur *> joueurs;
+    unsigned int mode_jeu = 1;
     int tour = 1;
     void tourdejeu();
     void clear_screen();

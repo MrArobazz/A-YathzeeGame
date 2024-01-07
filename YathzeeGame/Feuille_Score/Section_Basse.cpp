@@ -55,9 +55,6 @@ int Section_Basse::getScorePosition(unsigned int position) {
     return section[position].getScore();
 }
 
-std::string Section_Basse::getDescCombinaison(unsigned int position) {
-    return section[position].getDesc();
-}
 
 void Section_Basse::affiche() {
     for(int i = 0 ; i < section.size() ; ++i){
@@ -115,4 +112,16 @@ void Section_Basse::bonusYams() {
     {
         addBonus();
     }
+}
+
+bool Section_Basse::islocked() {
+    return locked;
+}
+
+void Section_Basse::unlock() {
+    locked = false;
+}
+
+void Section_Basse::lock() {
+    locked = true ;
 }
