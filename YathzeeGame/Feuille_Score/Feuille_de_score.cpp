@@ -7,7 +7,6 @@
 Feuille_de_score::Feuille_de_score(unsigned int mode) {
     section_h = new Section_Haute();
     section_b = new Section_Basse();
-
     switch (mode) {
         case 1 :
             break;

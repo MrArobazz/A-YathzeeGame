@@ -20,6 +20,10 @@ private:
 public:
 
     Section_Basse();
+    Section_Basse(const Section_Basse &section_b);
+    Section_Basse& operator=(const Section_Basse &section_b);
+
+
     void setScore(Lancer & lancer, unsigned int position);
     int getScore();
     int getScorePosition(unsigned int position);

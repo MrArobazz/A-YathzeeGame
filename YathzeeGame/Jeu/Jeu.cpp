@@ -37,7 +37,7 @@ Jeu::Jeu() {
             nb_joueurs = 0;
         }
         mode_jeu = mode ;
-        cout<<mode_jeu<<endl;
+
     } while (nb_joueurs == 0 || (mode<1 && mode > 4)) ;
 
     for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)

@@ -20,7 +20,6 @@ Section_Basse::Section_Basse() {
     Figure * f7 = new Chance();
     figures.push_back(f7);
 
-
     section.push_back(Combinaison(f1 , "Brelan (somme des 3 des) :"));
     section.push_back(Combinaison(f2 , "Carre (somme des 4 des) :"));
     section.push_back(Combinaison(f3 , "Full :"));
@@ -28,6 +27,25 @@ Section_Basse::Section_Basse() {
     section.push_back(Combinaison(f5 , "Grande Suite : "));
     section.push_back(Combinaison(f6 , "Yams :"));
     section.push_back(Combinaison(f7 , "Chance (Somme des 5 des) :"));
+}
+
+Section_Basse::Section_Basse(const Section_Basse &section_b):figures(section_b.figures),section(section_b.section),
+score_section(section_b.score_section),locked(section_b.locked),bonus(section_b.bonus){
+}
+
+Section_Basse& Section_Basse::operator=(const Section_Basse &section_b) {
+    if(this != &section_b)
+    {
+        for(Figure *f : figures){
+            delete f;
+        }
+        figures = section_b.figures;
+        section = section_b.section;
+        score_section = section_b.score_section;
+        locked = section_b.locked;
+        bonus = section_b.bonus;
+    }
+    return *this;
 }
 
 

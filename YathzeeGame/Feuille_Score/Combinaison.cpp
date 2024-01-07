@@ -6,7 +6,20 @@
 
 Combinaison::Combinaison(Figure *f,std::string Desc) : figure(f),description(Desc) {};
 
+Combinaison::Combinaison(const Combinaison &com) :figure(com.figure),
+description(com.description),score(com.score),preview_score(com.preview_score) {
+}
 
+Combinaison& Combinaison::operator=(const Combinaison &comb) {
+    if(this!=&comb)
+    {
+        figure = comb.figure;
+        static_cast<std::string>(description) = comb.description;
+        score = comb.score;
+        preview_score = comb.preview_score;
+    }
+    return *this;
+}
 
 void Combinaison::setScore(Lancer & lancer) {
     score = figure ? figure->calculerPoints(lancer) : 0;
