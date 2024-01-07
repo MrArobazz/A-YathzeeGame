@@ -6,7 +6,9 @@
 
 Section_Basse::Section_Basse() {
     Figure * f1 = nullptr;
+    figures.push_back(f1);
     Figure * f2 = nullptr;
+    figures.push_back(f2);
     Figure * f3 = new Full();
     figures.push_back(f3);
     Figure * f4 = new PetiteSuite();
@@ -94,11 +96,6 @@ void Section_Basse::affichePreview(unsigned int position)
     section[position].affichePreview();
 }
 
-Section_Basse::~Section_Basse() {
-    for(Figure * f :figures) {
-        delete f;
-    }
-}
 
 void Section_Basse::addBonus() {
     if(!bonus){
@@ -124,4 +121,13 @@ void Section_Basse::unlock() {
 
 void Section_Basse::lock() {
     locked = true ;
+}
+
+
+Section_Basse::~Section_Basse() {
+    for(Figure * f :figures) {
+        if(f){
+            delete f;
+        }
+    }
 }

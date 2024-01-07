@@ -20,7 +20,7 @@
 
 class Combinaison {
 private:
-    const Figure* figure;
+    const Figure * figure;
     const std::string description;
     int score = -1;
     int preview_score = 0;

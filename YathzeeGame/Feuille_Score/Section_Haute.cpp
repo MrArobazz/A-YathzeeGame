@@ -58,6 +58,7 @@ void Section_Haute::affiche() {
     if(bonus){
         std::cout<<std::endl<<"BONUS  35 Points Acquis"<<std::endl<<std::endl;
     }
+    std::cout<<"Score Section Haute : "<<score_section<<std::endl;
 
 }
 

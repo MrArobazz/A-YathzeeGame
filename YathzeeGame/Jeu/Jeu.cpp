@@ -104,7 +104,7 @@ void Jeu::tourdejeu() {
                     cout << "Saisie invalide. Entrez une position." << endl;
                     continue;
                 }
-                is_possible = j->setScore(*lancer, position);
+                is_possible = j->setScore(*lancer, position-1);
 
             } while (!is_possible);
         }
@@ -165,14 +165,14 @@ void Jeu::LancerJeu() {
         j->affiche();
     }
     cout << endl << endl;
-    cout << "Partie terminée. Les feuilles de scores sont au dessus. Confirmez la fermeture de la fenetre." << endl;
+    cout << "Partie terminée. Les feuilles de scores sont au dessus. Confirmez la fermeture de la fenetre. (o)" << endl;
     while (!getPositiveAnswer()) {};
 }
 
 Jeu::~Jeu() {
     delete lancer;
-    for(int i = 0 ;i < joueurs.size() ; ++i)
+    for(Joueur * j : joueurs)
     {
-        delete joueurs[i];
+        delete j;
     }
 }
