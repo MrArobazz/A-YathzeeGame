@@ -30,22 +30,132 @@ Section_Basse::Section_Basse() {
     section.push_back(Combinaison(f7 , "Chance (Somme des 5 des) :"));
 }
 
-void Section_Basse::setScore(Lancer &lancer, unsigned int position) {
-    if(position == 0)
+
+void Section_Basse::setBrelan(Lancer &lancer) {
+    int desTries[5]{};
+    int ind = 0;
+    for (const auto &de: lancer.getDices()) {
+        desTries[ind] = de.getValue();
+        ind++;
+    }
+    std::sort(std::begin(desTries), std::end(desTries));
+
+    int brelan = 0;
+    if (desTries[0] == desTries[2]) {
+        brelan = desTries[0];
+    } else {
+        if (desTries[1] == desTries[3]) {
+            brelan = desTries[1];
+        } else {
+            if (desTries[2] == desTries[4]) {
+                brelan = desTries[2];
+            }
+        }
+    }
+
+    switch (brelan) {
+        case 1: {
+            Un u;
+            figures[0] = new Brelan<Un>(u);
+            break;
+        }
+        case 2: {
+            Deux d;
+            figures[0] = new Brelan<Deux>(d);
+            break;
+        }
+        case 3: {
+            Trois t;
+            figures[0] = new Brelan<Trois>(t);
+            break;
+        }
+        case 4: {
+            Quatre q;
+            figures[0] = new Brelan<Quatre>(q);
+            break;
+        }
+        case 5: {
+            Cinq c;
+            figures[0] = new Brelan<Cinq>(c);
+            break;
+        }
+        case 6: {
+            Six s;
+            figures[0] = new Brelan<Six>(s);
+            break;
+        }
+    }
+}
+
+
+void Section_Basse::setCarre(Lancer &lancer) {
+    int desTries[5]{};
+    int ind = 0;
+    for (const auto& de : lancer.getDices()) {
+        desTries[ind] = de.getValue();
+        ind++;
+    }
+    std::sort(std::begin(desTries), std::end(desTries));
+
+    int carre = 0;
+    if(desTries[0]==desTries[3] )
     {
-        section[0].setBrelan(lancer);
+        carre = desTries[0];
     }
     else
     {
-        if(position == 1)
-        {
-            section[1].setCarre(lancer);
-        }
-        else
-        {
-            section[position].setScore(lancer);
+        if (desTries[1] == desTries[4]) {
+            carre = desTries[1];
         }
     }
+
+    switch(carre) {
+        case 1: {
+            Un u;
+            figures[1] = new Carre<Un>(u);
+            break;
+        }
+        case 2: {
+            Deux d;
+            figures[1]  = new Carre<Deux>(d);
+            break;
+        }
+        case 3: {
+            Trois t;
+            figures[1]  = new Carre<Trois>(t);
+            break;
+        }
+        case 4: {
+            Quatre q;
+            figures[1]  = new Carre<Quatre>(q);
+            break;
+        }
+        case 5: {
+            Cinq c;
+            figures[1]  = new Carre<Cinq>(c);
+            break;
+        }
+        case 6: {
+            Six s;
+            figures[1]  = new Carre<Six>(s);
+            break;
+        }
+    }
+}
+
+
+void Section_Basse::setScore(Lancer &lancer, unsigned int position) {
+
+    if(position == 0)
+    {
+        setBrelan(lancer);
+    }
+    if(position == 1)
+    {
+        setCarre(lancer);
+    }
+
+    section[position].setScore(lancer);
     score_section += section[position].getScore();
 }
 

@@ -25,16 +25,18 @@ private:
     int score = -1;
     int preview_score = 0;
 public:
-    Combinaison(Figure *f,std::string Desc) : figure(f),description(Desc) {};
+    Combinaison(Figure *f,std::string Desc) ;
+
     void setScore(Lancer& lancer);
     void setPreviewScore(Lancer& lancer);
     void resetPreviewScore();
     int getScore();
     void setPreviewBrelan(Lancer& lancer);
     void setPreviewCarre(Lancer& lancer);
-    void setBrelan(Lancer & lancer);
-    void setCarre(Lancer & lancer);
+
+
     std::string getDesc();
     void affiche();
     void affichePreview();
+
 };

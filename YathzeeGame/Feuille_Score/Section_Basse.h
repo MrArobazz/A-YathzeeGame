@@ -14,8 +14,11 @@ private:
     bool locked = false;
     bool bonus = false;
     void addBonus();
+    void setBrelan(Lancer &lancer);
+    void setCarre(Lancer &lancer);
 
 public:
+
     Section_Basse();
     void setScore(Lancer & lancer, unsigned int position);
     int getScore();
