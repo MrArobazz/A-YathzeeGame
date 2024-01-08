@@ -18,7 +18,6 @@ Section_Haute::Section_Haute() {
     Figure * f6 = new Six();
     figures.push_back(f6);
 
-
     section.push_back(Combinaison(f1, "Somme des as obtenus :"));
     section.push_back(Combinaison(f2 , "Somme des deux obtenus :"));
     section.push_back(Combinaison(f3 , "Somme des trois obtenus :"));
@@ -36,23 +35,18 @@ score_section(section_h.score_section),nb_combinaison_restante(section_h.nb_comb
 Section_Haute& Section_Haute::operator=(const Section_Haute &section_h) {
     if(this != &section_h)
     {
-
-        for(int i = 0 ; i < figures.size() ; ++i)
+        for(Figure *f:figures)
         {
-            if(figures[i]!=nullptr){
-                delete figures[i];
-            }
-            figures[i] = section_h.figures[i] ;
-            section[i] = section_h.section[i];
+            delete f;
         }
+        figures = section_h.figures;
+        section = section_h.section;
         score_section = section_h.score_section;
         nb_combinaison_restante = section_h.nb_combinaison_restante;
         bonus = section_h.bonus;
     }
     return *this;
 }
-
-
 
 void Section_Haute::setScore(Lancer &lancer , unsigned int position) {
         section[position].setScore(lancer);
@@ -103,11 +97,15 @@ void Section_Haute::affichePreview(unsigned int position)
     section[position].affichePreview();
 }
 
-Section_Haute::~Section_Haute() {
-    for(Figure * f :figures)
+void Section_Haute::purge()
+{
+    for(Figure *f : figures)
     {
         delete f;
     }
+}
+
+Section_Haute::~Section_Haute() {
 }
 
 bool Section_Haute::is_full() {

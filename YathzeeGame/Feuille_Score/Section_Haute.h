@@ -29,5 +29,7 @@ class Section_Haute {
 
         bool is_full();
 
+        void purge();
+
         ~Section_Haute();
 };

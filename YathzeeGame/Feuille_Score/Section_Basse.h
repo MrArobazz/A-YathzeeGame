@@ -37,5 +37,7 @@ public:
     void resetPreviewScores();
     void affichePreview(unsigned int position);
 
+    void purge();
+
     ~Section_Basse();
 };

@@ -4,10 +4,7 @@
 
 #include "Feuille_de_score.h"
 
-Feuille_de_score::Feuille_de_score(unsigned int mode):section_b(),section_h() {
-   Section_Haute h;
-   h.affiche();
-   section_h = h;
+Feuille_de_score::Feuille_de_score(unsigned int mode):section_h(),section_b(){
     switch (mode) {
         case 1 :
             break;
@@ -128,6 +125,8 @@ void Feuille_de_score::affichePreview(Lancer& lancer)
 }
 
 Feuille_de_score::~Feuille_de_score() {
+    section_h.purge();
+    section_b.purge();
 }
 
 int Feuille_de_score::getPositionActuelle() {

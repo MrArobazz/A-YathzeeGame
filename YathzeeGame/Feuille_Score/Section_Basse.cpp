@@ -41,10 +41,8 @@ Section_Basse& Section_Basse::operator=(const Section_Basse &section_b) {
                 delete f;
             }
         }
-        for(Figure *f : section_b.figures){
-            Figure * fig = f;
-            figures.push_back(fig);
-        }
+        figures = section_b.figures;
+        section = section_b.section;
         score_section = section_b.score_section;
         locked = section_b.locked;
         bonus = section_b.bonus;
@@ -255,11 +253,17 @@ void Section_Basse::lock() {
     locked = true ;
 }
 
-
-Section_Basse::~Section_Basse() {
-    for(Figure * f :figures) {
-        if(f){
+void Section_Basse::purge()
+{
+    for(Figure *f : figures)
+    {
+        if(f)
+        {
             delete f;
         }
     }
+}
+
+Section_Basse::~Section_Basse() {
+
 }
