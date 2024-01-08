@@ -20,6 +20,16 @@ Jeu::Jeu() {
             cout << "Saisie invalide :  Nombre Joueur invalide" << endl;
             continue;
         }
+        if (nb_joueurs > 8) {
+            cout << "Trop de joueurs. La limite est de 8." << endl;
+            nb_joueurs = 0;
+        };
+
+    } while (nb_joueurs == 0) ;
+
+
+
+    do {
         cout << "Choisir un Mode de Jeu"<<endl;
         cout << "1 : mode Facile"<<endl;
         cout << "2 : mode Normal"<<endl;
@@ -32,17 +42,14 @@ Jeu::Jeu() {
             cout << "Saisie invalide : Mode Invalide" << endl;
             continue;
         }
-        if (nb_joueurs > 8) {
-            cout << "Trop de joueurs. La limite est de 8." << endl;
-            nb_joueurs = 0;
-        }
         if (mode < 0 || mode > 4) {
             cout << "Saisie Mode Incorrect" << endl;
             mode = 0;
         }
         mode_jeu = mode ;
 
-    } while (nb_joueurs == 0 || mode == 0) ;
+    } while (mode == 0) ;
+
 
     for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
     {
