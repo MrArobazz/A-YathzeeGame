@@ -4,7 +4,7 @@
 
 #include "Combinaison.h"
 
-Combinaison::Combinaison(Figure *f,std::string Desc) : figure(f),description(Desc) {};
+Combinaison::Combinaison(std::shared_ptr<Figure> f,std::string Desc) : figure(f),description(Desc) {};
 
 void Combinaison::setScore(Lancer & lancer) {
     score = figure ? figure->calculerPoints(lancer) : 0;

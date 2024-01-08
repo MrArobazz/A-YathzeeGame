@@ -5,25 +5,25 @@
 #include "Section_Haute.h"
 
 Section_Haute::Section_Haute() {
-    Figure * f1 = new Un();
-    figures.push_back(f1);
-    Figure * f2 = new Deux();
-    figures.push_back(f2);
-    Figure * f3 = new Trois();
-    figures.push_back(f3);
-    Figure * f4 = new Quatre();
-    figures.push_back(f4);
-    Figure * f5 = new Cinq();
-    figures.push_back(f5);
-    Figure * f6 = new Six();
-    figures.push_back(f6);
+    std::shared_ptr<Figure> figure1 = std::make_shared<Un>();
+    figures.push_back(figure1);
+    std::shared_ptr<Figure> figure2 = std::make_shared<Deux>();
+    figures.push_back(figure2);
+    std::shared_ptr<Figure> figure3 = std::make_shared<Trois>();
+    figures.push_back(figure3);
+    std::shared_ptr<Figure> figure4 = std::make_shared<Quatre>();
+    figures.push_back(figure4);
+    std::shared_ptr<Figure> figure5 = std::make_shared<Cinq>();
+    figures.push_back(figure5);
+    std::shared_ptr<Figure> figure6 = std::make_shared<Six>();
+    figures.push_back(figure6);
 
-    section.push_back(Combinaison(f1, "Somme des as obtenus :"));
-    section.push_back(Combinaison(f2 , "Somme des deux obtenus :"));
-    section.push_back(Combinaison(f3 , "Somme des trois obtenus :"));
-    section.push_back(Combinaison(f4 , "Somme des quatre obtenus :"));
-    section.push_back(Combinaison(f5 , "Somme des cinq obtenus :"));
-    section.push_back(Combinaison(f6 , "Somme des six obtenus :"));
+    section.push_back(Combinaison(figure1, "Somme des as obtenus :"));
+    section.push_back(Combinaison(figure2 , "Somme des deux obtenus :"));
+    section.push_back(Combinaison(figure3 , "Somme des trois obtenus :"));
+    section.push_back(Combinaison(figure4 , "Somme des quatre obtenus :"));
+    section.push_back(Combinaison(figure5 , "Somme des cinq obtenus :"));
+    section.push_back(Combinaison(figure6 , "Somme des six obtenus :"));
 
 
 }
@@ -75,14 +75,6 @@ void Section_Haute::affichePreview(unsigned int position)
 {
     std::cout << 1 + position << "-";
     section[position].affichePreview();
-}
-
-
-Section_Haute::~Section_Haute() {
-    for(Figure *f : figures)
-    {
-        delete f;
-    }
 }
 
 bool Section_Haute::is_full() {

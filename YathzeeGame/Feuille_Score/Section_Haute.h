@@ -8,7 +8,7 @@
 class Section_Haute {
 
     private:
-        std::vector<Figure * > figures;
+        std::vector<std::shared_ptr<Figure>> figures;
         std::vector<Combinaison> section;
         int score_section = 0;
         bool bonus = false;
@@ -27,7 +27,4 @@ class Section_Haute {
         void affichePreview(unsigned int position);
 
         bool is_full();
-
-
-        ~Section_Haute();
 };

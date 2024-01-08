@@ -5,7 +5,7 @@
 #pragma once
 #include "Joueur.h"
 #include <limits>
-#include <memory>
+
 class Jeu {
 private:
     Lancer lancer;

@@ -16,20 +16,20 @@
 #include "../Figures/Trois.h"
 #include "../Figures/Un.h"
 #include "../Figures/Yams.h"
-
+#include <memory>
 
 class Combinaison {
 
 private:
 
-    const Figure * figure;
+    const std::shared_ptr<Figure> figure;
     const std::string description;
     int score = -1;
     int preview_score = 0;
 
 public:
 
-    Combinaison(Figure *f,std::string Desc) ;
+    Combinaison(std::shared_ptr<Figure> f,std::string Desc) ;
     void setScore(Lancer& lancer);
     void setPreviewScore(Lancer& lancer);
     void resetPreviewScore();

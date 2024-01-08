@@ -5,28 +5,28 @@
 #include "Section_Basse.h"
 
 Section_Basse::Section_Basse() {
-    Figure * f1 = nullptr;
-    figures.push_back(f1);
-    Figure * f2 = nullptr;
-    figures.push_back(f2);
-    Figure * f3 = new Full();
-    figures.push_back(f3);
-    Figure * f4 = new PetiteSuite();
-    figures.push_back(f4);
-    Figure * f5 = new GrandeSuite();
-    figures.push_back(f5);
-    Figure * f6 = new Yams();
-    figures.push_back(f6);
-    Figure * f7 = new Chance();
-    figures.push_back(f7);
+    std::shared_ptr<Figure> figure1 = nullptr;
+    figures.push_back(figure1);
+    std::shared_ptr<Figure> figure2 = nullptr;
+    figures.push_back(figure2);
+    std::shared_ptr<Figure> figure3 = std::make_shared<Full>();
+    figures.push_back(figure3);
+    std::shared_ptr<Figure> figure4 = std::make_shared<PetiteSuite>();
+    figures.push_back(figure4);
+    std::shared_ptr<Figure> figure5 = std::make_shared<GrandeSuite>();
+    figures.push_back(figure5);
+    std::shared_ptr<Figure> figure6 = std::make_shared<Yams>();
+    figures.push_back(figure6);
+    std::shared_ptr<Figure> figure7 = std::make_shared<Chance>();
+    figures.push_back(figure7);
 
-    section.push_back(Combinaison(f1 , "Brelan (somme des 3 des) :"));
-    section.push_back(Combinaison(f2 , "Carre (somme des 4 des) :"));
-    section.push_back(Combinaison(f3 , "Full :"));
-    section.push_back(Combinaison(f4 , "Petite Suite :"));
-    section.push_back(Combinaison(f5 , "Grande Suite : "));
-    section.push_back(Combinaison(f6 , "Yams :"));
-    section.push_back(Combinaison(f7 , "Chance (Somme des 5 des) :"));
+    section.push_back(Combinaison(figure1 , "Brelan (somme des 3 des) :"));
+    section.push_back(Combinaison(figure2 , "Carre (somme des 4 des) :"));
+    section.push_back(Combinaison(figure3 , "Full :"));
+    section.push_back(Combinaison(figure4 , "Petite Suite :"));
+    section.push_back(Combinaison(figure5 , "Grande Suite : "));
+    section.push_back(Combinaison(figure6 , "Yams :"));
+    section.push_back(Combinaison(figure7 , "Chance (Somme des 5 des) :"));
 }
 
 
@@ -55,32 +55,32 @@ void Section_Basse::setBrelan(Lancer &lancer) {
     switch (brelan) {
         case 1: {
             Un u;
-            figures[0] = new Brelan<Un>(u);
+            figures[0] = std::make_shared<Brelan<Un> >(u);
             break;
         }
         case 2: {
             Deux d;
-            figures[0] = new Brelan<Deux>(d);
+            figures[0] = std::make_shared<Brelan<Deux> >(d);
             break;
         }
         case 3: {
             Trois t;
-            figures[0] = new Brelan<Trois>(t);
+            figures[0] = std::make_shared<Brelan<Trois> >(t);
             break;
         }
         case 4: {
             Quatre q;
-            figures[0] = new Brelan<Quatre>(q);
+            figures[0] =std::make_shared<Brelan<Quatre> >(q);
             break;
         }
         case 5: {
             Cinq c;
-            figures[0] = new Brelan<Cinq>(c);
+            figures[0] = std::make_shared<Brelan<Cinq> >(c);
             break;
         }
         case 6: {
             Six s;
-            figures[0] = new Brelan<Six>(s);
+            figures[0] = std::make_shared<Brelan<Six> >(s);;
             break;
         }
     }
@@ -111,32 +111,31 @@ void Section_Basse::setCarre(Lancer &lancer) {
     switch(carre) {
         case 1: {
             Un u;
-            figures[1] = new Carre<Un>(u);
+            figures[1] = std::make_shared<Carre<Un> >(u);
             break;
         }
         case 2: {
             Deux d;
-            figures[1]  = new Carre<Deux>(d);
+            figures[1]  = std::make_shared<Carre<Deux> >(d);
             break;
         }
         case 3: {
             Trois t;
-            figures[1]  = new Carre<Trois>(t);
-            break;
+            figures[1]  = std::make_shared<Carre<Trois> >(t);
         }
         case 4: {
             Quatre q;
-            figures[1]  = new Carre<Quatre>(q);
+            figures[1]  = std::make_shared<Carre<Quatre> >(q);
             break;
         }
         case 5: {
             Cinq c;
-            figures[1]  = new Carre<Cinq>(c);
+            figures[1]  = std::make_shared<Carre<Cinq> >(c);
             break;
         }
         case 6: {
             Six s;
-            figures[1]  = new Carre<Six>(s);
+            figures[1]  = std::make_shared<Carre<Six> >(s);
             break;
         }
     }
@@ -230,15 +229,4 @@ void Section_Basse::unlock() {
 
 void Section_Basse::lock() {
     locked = true ;
-}
-
-Section_Basse::~Section_Basse() {
-
-    for(Figure *f : figures)
-    {
-        if(f)
-        {
-            delete f;
-        }
-    }
 }
