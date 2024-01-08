@@ -5,11 +5,11 @@
 #pragma once
 #include "Joueur.h"
 #include <limits>
-
+#include <memory>
 class Jeu {
 private:
-    Lancer* lancer;
-    std::vector<Joueur *> joueurs;
+    Lancer lancer;
+    std::vector<std::shared_ptr<Joueur>> joueur;
     unsigned int mode_jeu = 1;
     int tour = 1;
     void tourdejeu();
@@ -19,6 +19,5 @@ private:
 public :
     Jeu();
     void LancerJeu();
-    ~Jeu();
 
 };
