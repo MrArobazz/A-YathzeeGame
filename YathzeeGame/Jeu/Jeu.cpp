@@ -42,7 +42,7 @@ Jeu::Jeu() {
         }
         mode_jeu = mode ;
 
-    } while (nb_joueurs == 0 && mode == 0) ;
+    } while (nb_joueurs == 0 || mode == 0) ;
 
     for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
     {
