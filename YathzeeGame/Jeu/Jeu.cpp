@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Jeu::Jeu() {
+Jeu::Jeu() : lancer(){
 
     unsigned int nb_joueurs = 0;
     unsigned int mode = 0 ;
@@ -54,52 +54,52 @@ Jeu::Jeu() {
     for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
     {
         cout << "Joueur numero " << i << ", " << endl;
-        Joueur * j = new Joueur(mode_jeu);
-        joueurs.push_back(j);
+
+        std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu);
+        joueur.push_back(joueur1);
     }
-    lancer = new Lancer();
 }
 
 void Jeu::tourdejeu() {
     clear_screen();
     cout << "###Tour de Jeu : " << tour << "###" << endl;
-    for(Joueur *j : joueurs) {
+    for(std::shared_ptr<Joueur> &j : joueur) {
         cout << "##Pour le joueur : " << j->getName() << "##" << endl << endl;
 
         for (int i = 0; i <=2; ++i) {
-            lancer->rollDices();
+            lancer.rollDices();
 
-            for (const auto& de : lancer->getDices()) {
+            for (const auto& de : lancer.getDices()) {
                 std::cout << de.getValue() << " ";
             }
 
             if (i < 2) {
                 cout << endl;
-                j->affichePreview(*lancer);
+                j->affichePreview(lancer);
                 cout << endl << "Est-ce que ce lancer vous convient? (o/n)" << endl;
                 if (getPositiveAnswer())
                     break;
 
                 short ind = 0;
-                for (const auto& de : lancer->getDices()) {
+                for (const auto& de : lancer.getDices()) {
                     ind++;
                     if (de.isLocked())
                         cout << "Voulez-vous liberer le de " << ind << "? (o/n)" << endl;
                     else
                         cout << "Voulez-vous bloquer le de " << ind << "? (o/n)" << endl;
                     if (getPositiveAnswer())
-                        lancer->lockOrUnlockDice(ind-1);
+                        lancer.lockOrUnlockDice(ind-1);
                 }
                 clear_screen();
             }
         }
         clear_screen();
         cout << "Les des :" << endl;
-        for (const auto& de : lancer->getDices()) {
+        for (const auto& de : lancer.getDices()) {
             std::cout << de.getValue() << " ";
         }
         cout << endl << endl;
-        j->affichePreview(*lancer);
+        j->affichePreview(lancer);
 
 
         bool is_possible = false;
@@ -115,25 +115,25 @@ void Jeu::tourdejeu() {
                     cout << "Saisie invalide. Entrez une position." << endl;
                     continue;
                 }
-                is_possible = j->setScore(*lancer, position-1);
+                is_possible = j->setScore(lancer, position-1);
 
             } while (!is_possible);
         }
         else
         {
-            j->setScore(*lancer);
+            j->setScore(lancer);
         }
 
 
         clear_screen();
         cout << "Dernier Lancer des des :" << endl;
-        for (const auto& de : lancer->getDices()) {
+        for (const auto& de : lancer.getDices()) {
             std::cout << de.getValue() << " ";
         }
         cout << endl << endl;
         cout << "Voici votre feuille de score a la fin du tour." << endl;
         j->affiche();
-        lancer->remiseAzeroDe();
+        lancer.remiseAzeroDe();
         cout << "Confirmez le passage au prochain joueur ou tour. (o)" << endl;
         while (!getPositiveAnswer()) {};
         clear_screen();
@@ -172,7 +172,7 @@ void Jeu::LancerJeu() {
         tourdejeu();
     }
     cout << "Partie terminee. Voici les feuilles de scores de chaque joueur :" << endl;
-    for (Joueur* j : joueurs) {
+    for (std::shared_ptr<Joueur> &j : joueur) {
         j->affiche();
     }
     cout << endl << endl;
@@ -180,10 +180,3 @@ void Jeu::LancerJeu() {
     while (!getPositiveAnswer()) {};
 }
 
-Jeu::~Jeu() {
-    delete lancer;
-    for(Joueur * j : joueurs)
-    {
-        delete j;
-    }
-}
