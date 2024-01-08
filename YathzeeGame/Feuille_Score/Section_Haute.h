@@ -15,6 +15,9 @@ class Section_Haute {
         int nb_combinaison_restante = 6;
     public:
         Section_Haute();
+        Section_Haute(const Section_Haute &section_h);
+        Section_Haute& operator=(const Section_Haute &section_h);
+
         void setScore(Lancer & lancer , unsigned int position);
         int getScore();
         int getScorePosition(unsigned int position);

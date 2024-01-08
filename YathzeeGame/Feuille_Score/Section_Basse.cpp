@@ -37,10 +37,14 @@ Section_Basse& Section_Basse::operator=(const Section_Basse &section_b) {
     if(this != &section_b)
     {
         for(Figure *f : figures){
-            delete f;
+            if(f!= nullptr){
+                delete f;
+            }
         }
-        figures = section_b.figures;
-        section = section_b.section;
+        for(Figure *f : section_b.figures){
+            Figure * fig = f;
+            figures.push_back(fig);
+        }
         score_section = section_b.score_section;
         locked = section_b.locked;
         bonus = section_b.bonus;

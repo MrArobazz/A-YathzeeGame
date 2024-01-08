@@ -8,6 +8,8 @@ using namespace std;
 Joueur::Joueur(unsigned int mode) {
     mode_jeu = mode;
     feuille_score = new Feuille_de_score(mode);
+    //Feuille_de_score f(4);
+    //*feuille_score = f ;
     cout << "Entrez votre Nom" << endl;
     cin >> name;
 
