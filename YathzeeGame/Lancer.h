@@ -15,6 +15,7 @@ class Lancer
 		void roll();
 		bool isLocked() const { return locked; };
 		int getValue() const { return num; };
+		void setValue(unsigned int n) { num = n; };
         void unlock();
 	};
 
@@ -24,6 +25,7 @@ public:
 	void rollDices();
 	void lockOrUnlockDice(const int& ind);
 	const std::vector<De>& getDices() const { return des; };
+	std::vector<De>& getDices() { return des; };
     void remiseAzeroDe();
 };
 
