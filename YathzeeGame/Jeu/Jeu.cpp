@@ -36,9 +36,13 @@ Jeu::Jeu() {
             cout << "Trop de joueurs. La limite est de 8." << endl;
             nb_joueurs = 0;
         }
+        if (mode < 0 || mode > 4) {
+            cout << "Saisie Mode Incorrect" << endl;
+            mode = 0;
+        }
         mode_jeu = mode ;
 
-    } while (nb_joueurs == 0 || (mode<1 && mode > 4)) ;
+    } while (nb_joueurs == 0 && mode == 0) ;
 
     for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
     {

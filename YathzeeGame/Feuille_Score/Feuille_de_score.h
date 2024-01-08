@@ -19,8 +19,6 @@ private:
 
 public:
     Feuille_de_score(unsigned int mode);
-    Feuille_de_score(const Feuille_de_score &feuille_score);
-    Feuille_de_score& operator=(const Feuille_de_score &feuille_score);
 
     bool setScore(Lancer & lancer , unsigned int position);
     int getScore();
@@ -28,5 +26,4 @@ public:
     void affichePreview(Lancer& lancer);
     int getPositionActuelle();
     void majpos();
-    ~Feuille_de_score();
 };

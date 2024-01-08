@@ -29,27 +29,6 @@ Section_Basse::Section_Basse() {
     section.push_back(Combinaison(f7 , "Chance (Somme des 5 des) :"));
 }
 
-Section_Basse::Section_Basse(const Section_Basse &section_b):figures(section_b.figures),section(section_b.section),
-score_section(section_b.score_section),locked(section_b.locked),bonus(section_b.bonus){
-}
-
-Section_Basse& Section_Basse::operator=(const Section_Basse &section_b) {
-    if(this != &section_b)
-    {
-        for(Figure *f : figures){
-            if(f!= nullptr){
-                delete f;
-            }
-        }
-        figures = section_b.figures;
-        section = section_b.section;
-        score_section = section_b.score_section;
-        locked = section_b.locked;
-        bonus = section_b.bonus;
-    }
-    return *this;
-}
-
 
 void Section_Basse::setBrelan(Lancer &lancer) {
     int desTries[5]{};
@@ -253,8 +232,8 @@ void Section_Basse::lock() {
     locked = true ;
 }
 
-void Section_Basse::purge()
-{
+Section_Basse::~Section_Basse() {
+
     for(Figure *f : figures)
     {
         if(f)
@@ -262,8 +241,4 @@ void Section_Basse::purge()
             delete f;
         }
     }
-}
-
-Section_Basse::~Section_Basse() {
-
 }

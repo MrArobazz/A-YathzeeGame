@@ -28,26 +28,6 @@ Section_Haute::Section_Haute() {
 
 }
 
-Section_Haute::Section_Haute(const Section_Haute &section_h):figures(section_h.figures),section(section_h.section),
-score_section(section_h.score_section),nb_combinaison_restante(section_h.nb_combinaison_restante),bonus(section_h.bonus){
-}
-
-Section_Haute& Section_Haute::operator=(const Section_Haute &section_h) {
-    if(this != &section_h)
-    {
-        for(Figure *f:figures)
-        {
-            delete f;
-        }
-        figures = section_h.figures;
-        section = section_h.section;
-        score_section = section_h.score_section;
-        nb_combinaison_restante = section_h.nb_combinaison_restante;
-        bonus = section_h.bonus;
-    }
-    return *this;
-}
-
 void Section_Haute::setScore(Lancer &lancer , unsigned int position) {
         section[position].setScore(lancer);
         score_section += section[position].getScore();
@@ -97,15 +77,12 @@ void Section_Haute::affichePreview(unsigned int position)
     section[position].affichePreview();
 }
 
-void Section_Haute::purge()
-{
+
+Section_Haute::~Section_Haute() {
     for(Figure *f : figures)
     {
         delete f;
     }
-}
-
-Section_Haute::~Section_Haute() {
 }
 
 bool Section_Haute::is_full() {

@@ -22,25 +22,6 @@ Feuille_de_score::Feuille_de_score(unsigned int mode):section_h(),section_b(){
 
 }
 
-Feuille_de_score::Feuille_de_score(const Feuille_de_score &feuille_score) :position_actuel(feuille_score.position_actuel),
-position_possible(feuille_score.position_possible),score_total(feuille_score.score_total),
-mode_difficil(feuille_score.mode_difficil){
-    section_h=feuille_score.section_h;
-    section_b=feuille_score.section_b;
-}
-
-Feuille_de_score& Feuille_de_score::operator=(const Feuille_de_score &feuille_score) {
-    if(this!=&feuille_score)
-    {
-        section_h = feuille_score.section_h;
-        section_b = feuille_score.section_b;
-        position_actuel = feuille_score.position_actuel;
-        position_possible = feuille_score.position_possible;
-        mode_difficil = feuille_score.mode_difficil;
-    }
-    return *this;
-}
-
 bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
     if(position < 13 )
     {
@@ -122,11 +103,6 @@ void Feuille_de_score::affichePreview(Lancer& lancer)
         }
     }
 
-}
-
-Feuille_de_score::~Feuille_de_score() {
-    section_h.purge();
-    section_b.purge();
 }
 
 int Feuille_de_score::getPositionActuelle() {

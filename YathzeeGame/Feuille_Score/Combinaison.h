@@ -30,9 +30,6 @@ private:
 public:
 
     Combinaison(Figure *f,std::string Desc) ;
-    Combinaison(const Combinaison &comb);
-    Combinaison& operator=(const Combinaison &comb);
-
     void setScore(Lancer& lancer);
     void setPreviewScore(Lancer& lancer);
     void resetPreviewScore();
