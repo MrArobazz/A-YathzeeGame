@@ -95,4 +95,8 @@ void Combinaison::affichePreview()
     std::cout << description << " " << preview_score << std::endl;
 }
 
+void Combinaison::setFig(std::shared_ptr<Figure> f) {
+    figure = f;
+}
+
 

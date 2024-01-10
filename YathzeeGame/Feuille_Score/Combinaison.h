@@ -22,7 +22,7 @@ class Combinaison {
 
 private:
 
-    const std::shared_ptr<Figure> figure;
+    std::shared_ptr<Figure> figure;
     const std::string description;
     int score = -1;
     int preview_score = 0;
@@ -36,6 +36,7 @@ public:
     int getScore();
     void setPreviewBrelan(Lancer& lancer);
     void setPreviewCarre(Lancer& lancer);
+    void setFig(std::shared_ptr<Figure> f);
 
 
     std::string getDesc();

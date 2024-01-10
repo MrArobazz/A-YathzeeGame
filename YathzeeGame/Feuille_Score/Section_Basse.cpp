@@ -84,6 +84,7 @@ void Section_Basse::setBrelan(Lancer &lancer) {
             break;
         }
     }
+    section[0].setFig(figures[0]);
 }
 
 
@@ -140,6 +141,7 @@ void Section_Basse::setCarre(Lancer &lancer) {
             break;
         }
     }
+    section[1].setFig(figures[1]);
 }
 
 
