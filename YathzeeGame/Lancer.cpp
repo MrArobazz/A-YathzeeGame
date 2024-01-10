@@ -38,3 +38,9 @@ void Lancer::remiseAzeroDe() {
     for(De &d :des)
         d.unlock();
 }
+
+void Lancer::setValueForADice(const unsigned int& value, const unsigned int& pos)
+{
+	De& de = des.at(pos);
+	de.setValue(value);
+}

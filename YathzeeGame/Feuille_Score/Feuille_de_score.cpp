@@ -30,27 +30,27 @@ bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
         {
             section_b.bonusYams();
         }
-            if (position < 6) {
-                if (section_h.getScorePosition(position) == -1) {
-                    section_h.setScore(lancer, position);
+        if (position < 6) {
+            if (section_h.getScorePosition(position) == -1) {
+                section_h.setScore(lancer, position);
+                score_total = section_h.getScore() + section_b.getScore();
+                if (section_h.is_full()) {
+                    section_b.unlock();
+                }
+                return true;
+            }
+
+        } else {
+            if (!section_b.islocked()) {
+                if (section_b.getScorePosition(position - 6) == -1) {
+                    section_b.setScore(lancer, position - 6);
                     score_total = section_h.getScore() + section_b.getScore();
-                    if (section_h.is_full()) {
-                        section_b.unlock();
-                    }
                     return true;
                 }
-
-            } else {
-                if (!section_b.islocked()) {
-                    if (section_b.getScorePosition(position - 6) == -1) {
-                        section_b.setScore(lancer, position - 6);
-                        score_total = section_h.getScore() + section_b.getScore();
-                        return true;
-                    }
-                }
             }
+        }
     }
-        return false;
+    return false;
 }
 
 void Feuille_de_score::majpos()

@@ -126,11 +126,6 @@ void Jeu::tourdejeu() {
 
 
         clear_screen();
-        cout << "Dernier Lancer des des :" << endl;
-        for (const auto& de : lancer.getDices()) {
-            std::cout << de.getValue() << " ";
-        }
-        cout << endl << endl;
         cout << "Voici votre feuille de score a la fin du tour." << endl;
         j->affiche();
         lancer.remiseAzeroDe();
