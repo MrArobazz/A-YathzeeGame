@@ -52,6 +52,17 @@ void Section_Basse::setBrelan(Lancer &lancer) {
         }
     }
 
+    /*Pour fix des lancers qui ont + de 3 dés du brelan*/
+    int cpt_brelan = 0;
+    for (int i = 0; i < 5;i++) {
+        if (lancer.getDices().at(i).getValue() == brelan)
+            cpt_brelan++;
+        if (cpt_brelan > 3) {
+            lancer.setValueForADice(brelan + 1, i);
+            cpt_brelan--;
+        }
+    }
+
     switch (brelan) {
         case 1: {
             Un u;
@@ -106,6 +117,17 @@ void Section_Basse::setCarre(Lancer &lancer) {
     {
         if (desTries[1] == desTries[4]) {
             carre = desTries[1];
+        }
+    }
+
+    /*Pour fix des lancers qui ont + de 4 dés du carré*/
+    int cpt_carre = 0;
+    for (int i = 0; i < 5;i++) {
+        if (lancer.getDices().at(i).getValue() == carre)
+            cpt_carre++;
+        if (cpt_carre > 4) {
+            lancer.setValueForADice(carre + 1, i);
+            cpt_carre--;
         }
     }
 

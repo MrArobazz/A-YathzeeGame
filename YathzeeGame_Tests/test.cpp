@@ -192,8 +192,8 @@ TEST(TestScore, GrandeSuiteScore) {
         for (int i = 0; i < 5; i++)
             l.setValueForADice(test.at(i), i);
         f.setScore(l, 10);
-        ASSERT_EQ(f.getScore(), 30);
-        if (f.getScore() != 30) {
+        ASSERT_EQ(f.getScore(), 40);
+        if (f.getScore() != 40) {
             std::cout << "Test avec les des suivants :";
             for (const int& val : test) {
                 std::cout << " " << val;
@@ -266,7 +266,7 @@ TEST(TestScore, MaxReachable) {
         f.setScore(l, fig);
         fig++;
     }
-    ASSERT_EQ(f.getScore(), 217);
+    ASSERT_EQ(f.getScore(), 317);
 }
 
 TEST(TestScore, ActivateYams) {
@@ -305,7 +305,10 @@ TEST(TestScore, PerfectGame) {
     f.setScore(l, 11);
     f.setScore(l, 5);
     f.setScore(l, 6);
+    l.setValueForADice(6, 3);
+    l.setValueForADice(6, 4);
     f.setScore(l, 7);
+    l.setValueForADice(6, 4);
     f.setScore(l, 12);
     l.setValueForADice(5, 3);
     l.setValueForADice(5, 4);
