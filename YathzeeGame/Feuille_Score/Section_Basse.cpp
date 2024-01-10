@@ -122,6 +122,7 @@ void Section_Basse::setCarre(Lancer &lancer) {
         case 3: {
             Trois t;
             figures[1]  = std::make_shared<Carre<Trois> >(t);
+            break;
         }
         case 4: {
             Quatre q;
