@@ -26,4 +26,6 @@ public:
     void affichePreview(Lancer& lancer);
     int getPositionActuelle();
     void majpos();
+
+    friend std::ostream& operator<<(std::ostream& out, const Feuille_de_score& fds);
 };

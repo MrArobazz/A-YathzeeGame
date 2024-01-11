@@ -31,3 +31,8 @@ int PetiteSuite::calculerPoints(const Lancer& lancer) const
 
     return 0;
 }
+
+int PetiteSuite::getIndForSave() const
+{
+    return 9;
+}

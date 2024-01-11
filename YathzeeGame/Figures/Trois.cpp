@@ -8,3 +8,8 @@ int Trois::calculerPoints(const Lancer& lancer) const
             somme+=3;
     return somme;
 }
+
+int Trois::getIndForSave() const
+{
+    return 2;
+}

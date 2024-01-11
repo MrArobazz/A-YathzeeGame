@@ -34,4 +34,6 @@ public:
     void setPreviewScore(Lancer& lancer, unsigned int position);
     void resetPreviewScores();
     void affichePreview(unsigned int position);
+
+    friend std::ostream& operator<<(std::ostream& out, const Section_Basse& sb);
 };

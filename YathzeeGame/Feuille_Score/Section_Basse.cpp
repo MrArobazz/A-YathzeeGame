@@ -255,3 +255,15 @@ void Section_Basse::unlock() {
 void Section_Basse::lock() {
     locked = true ;
 }
+
+std::ostream& operator<<(std::ostream& out, const Section_Basse& sb)
+{
+    out << "Section_Basse:"
+        << " " << sb.score_section
+        << " " << sb.locked
+        << " " << sb.bonus << std::endl;
+    for (Combinaison comb : sb.section) {
+        out << comb;
+    };
+    return out;
+}

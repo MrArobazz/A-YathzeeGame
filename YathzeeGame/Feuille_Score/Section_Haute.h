@@ -27,4 +27,6 @@ class Section_Haute {
         void affichePreview(unsigned int position);
 
         bool is_full();
+
+        friend std::ostream& operator<<(std::ostream& out, const Section_Haute& sh);
 };

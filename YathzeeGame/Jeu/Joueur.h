@@ -22,4 +22,6 @@ public:
     void affichePreview(Lancer& lancer);
 
     ~Joueur();
+
+    friend std::ostream& operator<<(std::ostream& out, const Joueur& j);
 };
