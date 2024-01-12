@@ -99,4 +99,13 @@ void Combinaison::setFig(std::shared_ptr<Figure> f) {
     figure = f;
 }
 
-
+std::ostream& operator<<(std::ostream& out, const Combinaison& comb)
+{
+    Figure* fig = comb.figure.get();
+    out << "Combinaison:"
+        << " " << (fig ? fig->getIndForSave() : -1)
+        << " " << comb.score
+        << " " << comb.preview_score
+        << std::endl;
+    return out;
+}

@@ -162,16 +162,26 @@ bool Jeu::getPositiveAnswer()
 }
 
 void Jeu::LancerJeu() {
-    while(tour <= 13)
+    while(tour <= 3)
     {
         tourdejeu();
     }
-    cout << "Partie terminee. Voici les feuilles de scores de chaque joueur :" << endl;
+    cout << *this;
+    /*cout << "Partie terminee. Voici les feuilles de scores de chaque joueur :" << endl;
     for (std::shared_ptr<Joueur> &j : joueur) {
         j->affiche();
     }
     cout << endl << endl;
     cout << "Partie terminée. Les feuilles de scores sont au dessus. Confirmez la fermeture de la fenetre. (o)" << endl;
-    while (!getPositiveAnswer()) {};
+    while (!getPositiveAnswer()) {};*/
 }
 
+std::ostream& operator<<(std::ostream& out, const Jeu& j)
+{
+    out << "Jeu:"
+        << " " << j.mode_jeu
+        << " " << j.tour << endl;
+    for (const auto& joueur : j.joueur)
+        out << *joueur;
+    return out;
+}

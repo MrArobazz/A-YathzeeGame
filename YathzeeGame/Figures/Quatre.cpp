@@ -8,3 +8,8 @@ int Quatre::calculerPoints(const Lancer& lancer) const
             somme += 4;
     return somme;
 }
+
+int Quatre::getIndForSave() const
+{
+    return 3;
+}

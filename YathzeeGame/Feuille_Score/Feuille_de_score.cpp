@@ -108,3 +108,15 @@ void Feuille_de_score::affichePreview(Lancer& lancer)
 int Feuille_de_score::getPositionActuelle() {
     return position_possible[position_actuel];
 }
+
+std::ostream& operator<<(std::ostream& out, const Feuille_de_score& fds)
+{
+    out << "Feuille_de_score:"
+        << " " << fds.position_actuel;
+    for (const int& pos : fds.position_possible)
+        out << " " << pos;
+    out << " " << fds.score_total
+        << " " << fds.mode_difficil << std::endl;
+    out << fds.section_h << fds.section_b;
+    return out;
+}

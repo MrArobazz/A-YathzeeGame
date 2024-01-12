@@ -20,4 +20,6 @@ public :
     Jeu();
     void LancerJeu();
 
+    friend std::ostream& operator<<(std::ostream& out, const Jeu& j);
+
 };

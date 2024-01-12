@@ -80,3 +80,15 @@ void Section_Haute::affichePreview(unsigned int position)
 bool Section_Haute::is_full() {
     return nb_combinaison_restante == 0 ;
 }
+
+std::ostream& operator<<(std::ostream& out, const Section_Haute& sh)
+{
+    out << "Section_Haute:"
+        << " " << sh.score_section
+        << " " << sh.bonus
+        << " " << sh.nb_combinaison_restante << std::endl;
+    for (Combinaison comb : sh.section) {
+        out << comb;
+    };
+    return out;
+}

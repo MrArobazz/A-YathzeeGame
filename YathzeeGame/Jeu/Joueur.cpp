@@ -45,3 +45,12 @@ void Joueur::affichePreview(Lancer& lancer)
 
 Joueur::~Joueur() {
 }
+
+std::ostream& operator<<(std::ostream& out, const Joueur& j)
+{
+    out << "Joueur:"
+        << " " << j.name
+        << " " << j.mode_jeu << endl;
+    out << j.feuille_score;
+    return out;
+}

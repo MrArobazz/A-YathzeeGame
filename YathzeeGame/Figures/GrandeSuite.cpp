@@ -19,3 +19,8 @@ int GrandeSuite::calculerPoints(const Lancer& lancer) const
 
     return 40;
 }
+
+int GrandeSuite::getIndForSave() const
+{
+    return 10;
+}

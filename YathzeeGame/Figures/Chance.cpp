@@ -7,3 +7,8 @@ int Chance::calculerPoints(const Lancer& lancer) const
         somme += de.getValue();
     return somme;
 }
+
+int Chance::getIndForSave() const
+{
+    return 12;
+}
