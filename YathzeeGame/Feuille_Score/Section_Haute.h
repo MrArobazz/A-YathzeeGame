@@ -29,4 +29,5 @@ class Section_Haute {
         bool is_full();
 
         friend std::ostream& operator<<(std::ostream& out, const Section_Haute& sh);
+        friend std::istream& operator>>(std::istream& input, Section_Haute& sh);
 };

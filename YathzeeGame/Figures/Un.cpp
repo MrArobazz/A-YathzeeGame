@@ -8,8 +8,3 @@ int Un::calculerPoints(const Lancer& lancer) const
             somme++;
     return somme;
 }
-
-int Un::getIndForSave() const
-{
-    return 0;
-}

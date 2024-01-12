@@ -19,6 +19,7 @@ private:
 
 public:
     Feuille_de_score(unsigned int mode);
+    Feuille_de_score() : section_h(), section_b() {}; // pour eviter le usage du constructeur au dessus (qui utilise cin) pour la save
 
     bool setScore(Lancer & lancer , unsigned int position);
     int getScore();
@@ -28,4 +29,5 @@ public:
     void majpos();
 
     friend std::ostream& operator<<(std::ostream& out, const Feuille_de_score& fds);
+    friend std::istream& operator>>(std::istream& input, Feuille_de_score& fds);
 };

@@ -8,8 +8,3 @@ int Deux::calculerPoints(const Lancer& lancer) const
             somme+=2;
     return somme;
 }
-
-int Deux::getIndForSave() const
-{
-    return 1;
-}

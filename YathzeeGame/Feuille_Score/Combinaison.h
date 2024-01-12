@@ -44,4 +44,5 @@ public:
     void affichePreview();
 
     friend std::ostream& operator<<(std::ostream& out, const Combinaison& comb);
+    friend std::istream& operator>>(std::istream& input, Combinaison& comb);
 };
