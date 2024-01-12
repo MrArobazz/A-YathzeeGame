@@ -8,8 +8,3 @@ int Cinq::calculerPoints(const Lancer& lancer) const
             somme += 5;
     return somme;
 }
-
-int Cinq::getIndForSave() const
-{
-    return 4;
-}

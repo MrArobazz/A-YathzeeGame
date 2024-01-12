@@ -5,6 +5,8 @@
 #pragma once
 #include "Joueur.h"
 #include <limits>
+#include <iostream>
+#include <fstream>
 
 class Jeu {
 private:
@@ -21,5 +23,6 @@ public :
     void LancerJeu();
 
     friend std::ostream& operator<<(std::ostream& out, const Jeu& j);
+    friend std::istream& operator>>(std::istream& input, Jeu& j);
 
 };

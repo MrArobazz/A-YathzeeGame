@@ -101,11 +101,18 @@ void Combinaison::setFig(std::shared_ptr<Figure> f) {
 
 std::ostream& operator<<(std::ostream& out, const Combinaison& comb)
 {
-    Figure* fig = comb.figure.get();
     out << "Combinaison:"
-        << " " << (fig ? fig->getIndForSave() : -1)
         << " " << comb.score
         << " " << comb.preview_score
         << std::endl;
     return out;
+}
+
+std::istream& operator>>(std::istream& input, Combinaison& comb)
+{
+    std::string prefix;
+    input >> prefix
+        >> comb.score
+        >> comb.preview_score;
+    return input;
 }

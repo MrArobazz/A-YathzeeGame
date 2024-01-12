@@ -18,8 +18,3 @@ int Full::calculerPoints(const Lancer& lancer) const
         return 0;
     }
 }
-
-int Full::getIndForSave() const
-{
-    return 8;
-}

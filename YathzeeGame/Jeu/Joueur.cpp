@@ -54,3 +54,13 @@ std::ostream& operator<<(std::ostream& out, const Joueur& j)
     out << j.feuille_score;
     return out;
 }
+
+std::istream& operator>>(std::istream& input, Joueur& j)
+{
+    string prefix;
+    input >> prefix
+        >> j.name
+        >> j.mode_jeu
+        >> j.feuille_score;
+    return input;
+}

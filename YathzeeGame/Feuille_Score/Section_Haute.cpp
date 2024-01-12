@@ -92,3 +92,15 @@ std::ostream& operator<<(std::ostream& out, const Section_Haute& sh)
     };
     return out;
 }
+
+std::istream& operator>>(std::istream& input, Section_Haute& sh)
+{
+    std::string prefix;
+    input >> prefix
+        >> sh.score_section
+        >> sh.bonus
+        >> sh.nb_combinaison_restante;
+    for (Combinaison& comb : sh.section)
+        input >> comb;
+    return input;
+}

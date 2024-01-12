@@ -8,8 +8,3 @@ int Six::calculerPoints(const Lancer& lancer) const
             somme += 6;
     return somme;
 }
-
-int Six::getIndForSave() const
-{
-    return 5;
-}

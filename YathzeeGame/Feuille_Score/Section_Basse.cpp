@@ -267,3 +267,15 @@ std::ostream& operator<<(std::ostream& out, const Section_Basse& sb)
     };
     return out;
 }
+
+std::istream& operator>>(std::istream& input, Section_Basse& sb)
+{
+    std::string prefix;
+    input >> prefix
+        >> sb.score_section
+        >> sb.locked
+        >> sb.bonus;
+    for (Combinaison& comb : sb.section)
+        input >> comb;
+    return input;
+}

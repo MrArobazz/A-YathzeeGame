@@ -15,9 +15,9 @@ Feuille_de_score::Feuille_de_score(unsigned int mode):section_h(),section_b(){
             mode_difficil = true;
             break;
         case 4 :
-            unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+            auto rng = std::default_random_engine{};
             mode_difficil = true;
-            std::shuffle(position_possible.begin(),position_possible.end(),std::default_random_engine(seed));
+            std::shuffle(position_possible.begin(), position_possible.end(), rng);
     }
 
 }
@@ -119,4 +119,23 @@ std::ostream& operator<<(std::ostream& out, const Feuille_de_score& fds)
         << " " << fds.mode_difficil << std::endl;
     out << fds.section_h << fds.section_b;
     return out;
+}
+
+std::istream& operator>>(std::istream& input, Feuille_de_score& fds)
+{
+    std::string prefix;
+    input >> prefix
+        >> fds.position_actuel;
+    std::vector<int> positions;
+    for (int i = 0; i < 13; i++) {
+        int tmp = 0;
+        input >> tmp;
+        positions.push_back(tmp);
+    }
+    fds.position_possible = positions;
+    input >> fds.score_total
+        >> fds.mode_difficil
+        >> fds.section_h
+        >> fds.section_b;
+    return input;
 }

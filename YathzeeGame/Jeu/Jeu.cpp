@@ -10,53 +10,77 @@ Jeu::Jeu() : lancer(){
 
     unsigned int nb_joueurs = 0;
     unsigned int mode = 0 ;
-    do {
-        cout << "A combien souhaitez-vous jouer ?" << endl;
-        cin >> nb_joueurs;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Saisie invalide :  Nombre Joueur invalide" << endl;
-            continue;
+    string fileName = "save.txt";
+
+    ifstream inputFile(fileName);
+    bool newGame = true;
+    if (inputFile.good()) {
+        cout << "Une sauvegarde a ete trouvee. Voulez-vous la charger? (o/n)" << endl;
+        if (getPositiveAnswer()) {
+            inputFile >> *this;
+
+            cout << "La sauvegarde a ete chargee." << endl;
+            newGame = false;
         }
-        if (nb_joueurs > 8) {
-            cout << "Trop de joueurs. La limite est de 8." << endl;
-            nb_joueurs = 0;
-        };
+        inputFile.close();
+        cout << "Voulez-vous la supprimer? (o/n)" << endl;
+        if (getPositiveAnswer())
+            if (remove(fileName.c_str()) == 0)
+                cout << "Fichier supprime." << endl;
+            else
+                cerr << "Suppression impossible." << endl;
+    }
 
-    } while (nb_joueurs == 0) ;
+    if (newGame) {
+        do {
+            cout << "A combien souhaitez-vous jouer ?" << endl;
+            cin >> nb_joueurs;
+
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Saisie invalide :  Nombre Joueur invalide" << endl;
+                continue;
+            }
+            if (nb_joueurs > 8) {
+                cout << "Trop de joueurs. La limite est de 8." << endl;
+                nb_joueurs = 0;
+            };
+
+        } while (nb_joueurs == 0);
 
 
 
-    do {
-        cout << "Choisir un Mode de Jeu"<<endl;
-        cout << "1 : mode Facile"<<endl;
-        cout << "2 : mode Normal"<<endl;
-        cout << "3 : mode Difficile"<<endl;
-        cout << "4 : mode Hardcore"<<endl;
-        cin >> mode;
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Saisie invalide : Mode Invalide" << endl;
-            continue;
+        do {
+            cout << "Choisir un Mode de Jeu" << endl;
+            cout << "1 : mode Facile" << endl;
+            cout << "2 : mode Normal" << endl;
+            cout << "3 : mode Difficile" << endl;
+            cout << "4 : mode Hardcore" << endl;
+            cin >> mode;
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Saisie invalide : Mode Invalide" << endl;
+                continue;
+            }
+            if (mode < 0 || mode > 4) {
+                cout << "Saisie Mode Incorrect" << endl;
+                mode = 0;
+            }
+            mode_jeu = mode;
+
+        } while (mode == 0);
+
+
+        for (unsigned int i = 1; i <= nb_joueurs; ++i)
+        {
+            cout << "Joueur numero " << i << ", " << endl;
+
+            std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu);
+            joueur.push_back(joueur1);
         }
-        if (mode < 0 || mode > 4) {
-            cout << "Saisie Mode Incorrect" << endl;
-            mode = 0;
-        }
-        mode_jeu = mode ;
-
-    } while (mode == 0) ;
-
-
-    for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
-    {
-        cout << "Joueur numero " << i << ", " << endl;
-
-        std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu);
-        joueur.push_back(joueur1);
     }
 }
 
@@ -99,13 +123,13 @@ void Jeu::tourdejeu() {
             std::cout << de.getValue() << " ";
         }
         cout << endl << endl;
-        j->affichePreview(lancer);
 
 
         bool is_possible = false;
         unsigned int position;
 
         if(mode_jeu!=3 && mode_jeu!=4) {
+            j->affichePreview(lancer);
             do {
                 cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
                 cin >> position;
@@ -118,6 +142,7 @@ void Jeu::tourdejeu() {
                 is_possible = j->setScore(lancer, position-1);
 
             } while (!is_possible);
+            clear_screen();
         }
         else
         {
@@ -125,7 +150,6 @@ void Jeu::tourdejeu() {
         }
 
 
-        clear_screen();
         cout << "Voici votre feuille de score a la fin du tour." << endl;
         j->affiche();
         lancer.remiseAzeroDe();
@@ -162,26 +186,61 @@ bool Jeu::getPositiveAnswer()
 }
 
 void Jeu::LancerJeu() {
-    while(tour <= 3)
+    while(tour <= 13)
     {
         tourdejeu();
+        cout << "Voulez-vous sauvegarder la partie? (o/n)" << endl;
+        if (getPositiveAnswer()) {
+            string fileName = "save.txt";
+            ofstream outputFile(fileName, std::ios::out);
+
+            if (outputFile.is_open()) {
+                outputFile << *this;
+                outputFile.close();
+
+                cout << "La partie a bien ete sauvegardee." << endl;
+                cout << "Voulez-vous quitter le jeu? (o/n)" << endl;
+                if (getPositiveAnswer())
+                    return;
+            }
+            else
+                cerr << "Impossible de sauvegarder." << endl;
+        }
     }
-    cout << *this;
-    /*cout << "Partie terminee. Voici les feuilles de scores de chaque joueur :" << endl;
+    cout << "Partie terminee. Voici les feuilles de scores de chaque joueur :" << endl;
     for (std::shared_ptr<Joueur> &j : joueur) {
         j->affiche();
     }
     cout << endl << endl;
-    cout << "Partie terminée. Les feuilles de scores sont au dessus. Confirmez la fermeture de la fenetre. (o)" << endl;
-    while (!getPositiveAnswer()) {};*/
+    cout << "Partie terminee. Les feuilles de scores sont au dessus. Confirmez la fermeture de la fenetre. (o)" << endl;
+    while (!getPositiveAnswer()) {};
 }
 
 std::ostream& operator<<(std::ostream& out, const Jeu& j)
 {
     out << "Jeu:"
         << " " << j.mode_jeu
-        << " " << j.tour << endl;
+        << " " << j.tour
+        << " " << j.joueur.size() << endl;
     for (const auto& joueur : j.joueur)
         out << *joueur;
     return out;
+}
+
+std::istream& operator>>(std::istream& input, Jeu& j)
+{
+    string prefix = "";
+    input >> prefix
+        >> j.mode_jeu
+        >> j.tour;
+    unsigned int nb_joueurs = 0;
+    input >> nb_joueurs;
+    for (unsigned int i = 1; i <= nb_joueurs; ++i)
+    {
+        std::shared_ptr<Joueur> joueur = std::make_shared<Joueur>();
+        j.joueur.push_back(joueur);
+    }
+    for (auto& joueur : j.joueur)
+        input >> *joueur;
+    return input;
 }

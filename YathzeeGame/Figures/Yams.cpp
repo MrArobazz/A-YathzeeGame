@@ -14,8 +14,3 @@ int Yams::calculerPoints(const Lancer& lancer) const
         return 50;
     return 0;
 }
-
-int Yams::getIndForSave() const
-{
-    return 11;
-}

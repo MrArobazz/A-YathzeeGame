@@ -36,4 +36,5 @@ public:
     void affichePreview(unsigned int position);
 
     friend std::ostream& operator<<(std::ostream& out, const Section_Basse& sb);
+    friend std::istream& operator>>(std::istream& input, Section_Basse& sb);
 };
