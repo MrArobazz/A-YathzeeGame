@@ -204,7 +204,9 @@ public:
 
 private:
     std::vector<std::string> Nicolas{"Parfois on ne gagne pas,c'est l’adversaire qui perd","Comment on torture un robot ?J'en sais rien moi. Peut - être en insultant sa carte-mère ou en se moquant de la taille de son disque dur.","Tu frappes comme un végétarien.","T'as pas une gueule de porte-bonheur",
-                                     " Qui je suis ?Ton pire cauchemar.","Il est aussi con que ce qu'il est moche"};
+                                     " Qui je suis ?Ton pire cauchemar.","Il est aussi con que ce qu'il est moche","T'es mauvais Jack",
+                                     "Tu es doué petit, très doué. Mais tant que je serai dans le métier, tu ne seras toujours que le second","Dans le langage des filles, ça s'appelle un vent. fais gaffe, tu vas t'enrhumer."
+    ,"Je sens que je vais conclure"};
     std::vector<std::string> Hakim{"test"};
 
 
