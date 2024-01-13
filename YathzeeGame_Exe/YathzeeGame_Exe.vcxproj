@@ -19,12 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\YathzeeGame\play.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\YathzeeGame\YathzeeGame.vcxproj">
       <Project>{eaca575a-0dbd-4c0a-98f7-27a1cf1eaa82}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="play.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

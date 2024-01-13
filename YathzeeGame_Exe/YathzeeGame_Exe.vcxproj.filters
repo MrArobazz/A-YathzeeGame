@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\YathzeeGame\play.cpp">
+    <ClCompile Include="play.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

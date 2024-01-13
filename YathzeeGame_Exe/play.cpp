@@ -1,4 +1,4 @@
-// play.cpp : Ce fichier contient la fonction 'main'. L'exÃ©cution du programme commence et se termine Ã  cet endroit.
+// play.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
 #include <cstdlib>
@@ -11,7 +11,7 @@
 using namespace std;
 int main()
 {
-	srand((unsigned int)time(nullptr));
+    srand((unsigned int)time(nullptr));
     Jeu J;
     J.LancerJeu();
 }
