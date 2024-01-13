@@ -21,7 +21,6 @@ public:
 
     bool setScore(Lancer & lancer , unsigned int position);
     void setScore(Lancer & lancer);
-    int getScore();
     std::string getName();
     void affiche();
 

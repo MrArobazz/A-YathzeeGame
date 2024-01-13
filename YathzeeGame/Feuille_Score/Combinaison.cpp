@@ -89,9 +89,6 @@ void Combinaison::setPreviewCarre(const Lancer& lancer)
     preview_score = valeur_carre * 4;
 }
 
-std::string Combinaison::getDesc() const {
-    return description;
-}
 
 void Combinaison::affiche() {
     std::cout << description << " " << (score == -1 ? 0 : score) << std::endl;

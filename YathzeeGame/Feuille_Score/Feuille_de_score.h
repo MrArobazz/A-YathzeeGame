@@ -29,7 +29,6 @@ public:
     int getPositionActuelle();
     void majpos();
 
-    void get_combinaison(std::vector<position>&pos);
     void get_Bot_pos(Lancer & lancer, std::vector<position> &pos);
 
 

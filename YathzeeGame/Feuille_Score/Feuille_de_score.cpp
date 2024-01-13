@@ -140,13 +140,6 @@ std::istream& operator>>(std::istream& input, Feuille_de_score& fds)
     return input;
 }
 
-void Feuille_de_score::get_combinaison(std::vector<position> &pos) {
-    section_h.get_combinaison(pos);
-    section_b.get_combinaison(pos);
-}
-
-
-
 
 
 void Feuille_de_score::get_Bot_pos(Lancer & lancer , std::vector<position> & pos) {

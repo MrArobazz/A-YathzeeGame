@@ -27,9 +27,6 @@ void Joueur::setScore(Lancer &lancer)
     feuille_score.majpos();
  }
 
-int Joueur::getScore() {
-    return feuille_score.getScore();
-}
 
 std::string Joueur::getName()
 {

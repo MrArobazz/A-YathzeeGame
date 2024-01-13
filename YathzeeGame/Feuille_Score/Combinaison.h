@@ -52,7 +52,6 @@ public:
     int getScoreMean() const;
     int get_preview_score() const ;
 
-    std::string getDesc() const;
     void affiche();
     void affichePreview();
 
