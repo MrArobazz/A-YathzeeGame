@@ -130,3 +130,16 @@ int Joueur::maxhakim(const vector<position> &pos) {
     }
 
 }
+
+std::string Joueur::getCitation() {
+
+
+    if(type_joueur == 1){
+        int i = rand()% Nicolas.size();
+        return Nicolas[i];
+    }
+    else{
+        int i = rand()% Hakim.size();
+        return Hakim[i];
+    }
+}

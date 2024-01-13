@@ -187,6 +187,13 @@ void Jeu::tourdejeu() {
         cout << "Confirmez le passage au prochain joueur ou tour. (o)" << endl;
         while (!getPositiveAnswer()) {};
         clear_screen();
+        if(!j->is_human())
+        {
+            std::cout<<j->getCitation()<<std::endl<<std::endl<<std::endl;
+            cout << "Voulez-vous réellement continuer à m'affronter ?  (o)" << endl;
+            while (!getPositiveAnswer()) {};
+            clear_screen();
+        }
     }
     tour++;
 
