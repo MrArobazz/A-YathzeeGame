@@ -140,3 +140,19 @@ std::string Joueur::getCitation() {
         return Hakim[i];
     }
 }
+
+int Joueur::get_type() {
+    return type_joueur;
+}
+
+bool Joueur::isok(Lancer &lancer) {
+    std::vector<position> pos;
+    feuille_score.get_Bot_pos(lancer ,pos);
+    std::vector<position> posH;
+    for(position p : pos){
+        if(p.score >= feuille_score.getScoreMean(p.pos)){
+            posH.push_back(p);
+        }
+    }
+    return posH.size()!=0;
+}
