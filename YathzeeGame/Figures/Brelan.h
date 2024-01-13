@@ -5,9 +5,9 @@
 template <typename T>
 class Brelan : public Figure
 {
-	const T& trio;
+	const T trio;
 public:
-	Brelan(const T& trio) : trio(trio) {};
+	Brelan(const T trio) : trio(trio) {};
 
 	int calculerPoints(const Lancer& lancer) const;
 };

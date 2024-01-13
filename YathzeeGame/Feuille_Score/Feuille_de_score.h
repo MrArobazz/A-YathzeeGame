@@ -28,6 +28,10 @@ public:
     int getPositionActuelle();
     void majpos();
 
+    void get_combinaison(std::vector<position>&pos);
+    int get_Bot_pos(Lancer & lancer);
+    int max(const std::vector<position> &pos);
+
     friend std::ostream& operator<<(std::ostream& out, const Feuille_de_score& fds);
     friend std::istream& operator>>(std::istream& input, Feuille_de_score& fds);
 };

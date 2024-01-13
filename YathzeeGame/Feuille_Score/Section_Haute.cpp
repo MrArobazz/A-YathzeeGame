@@ -104,3 +104,12 @@ std::istream& operator>>(std::istream& input, Section_Haute& sh)
         input >> comb;
     return input;
 }
+
+void Section_Haute::get_combinaison(std::vector<position> &pos) {
+    for (int i = 0 ;  i < section.size() ; ++i){
+        if (section[i].get_preview_score() != -1)
+        {
+            pos.push_back(position(i,section[i].get_preview_score()));
+        }
+    }
+}

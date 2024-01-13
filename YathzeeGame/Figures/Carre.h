@@ -5,9 +5,9 @@
 template <typename T>
 class Carre : public Figure
 {
-	const T& quatuor;
+	const T quatuor;
 public:
-	Carre(const T& quatuor) : quatuor(quatuor) {};
+	Carre(const T quatuor) : quatuor(quatuor) {};
 
 	int calculerPoints(const Lancer& lancer) const;
 };

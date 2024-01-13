@@ -52,7 +52,7 @@ void Section_Basse::setBrelan(Lancer &lancer) {
         }
     }
 
-    /*Pour fix des lancers qui ont + de 3 dés du brelan*/
+    /*Pour fix des lancers qui ont + de 3 dï¿½s du brelan*/
     int cpt_brelan = 0;
     for (int i = 0; i < 5;i++) {
         if (lancer.getDices().at(i).getValue() == brelan)
@@ -120,7 +120,7 @@ void Section_Basse::setCarre(Lancer &lancer) {
         }
     }
 
-    /*Pour fix des lancers qui ont + de 4 dés du carré*/
+    /*Pour fix des lancers qui ont + de 4 dï¿½s du carrï¿½*/
     int cpt_carre = 0;
     for (int i = 0; i < 5;i++) {
         if (lancer.getDices().at(i).getValue() == carre)
@@ -279,3 +279,13 @@ std::istream& operator>>(std::istream& input, Section_Basse& sb)
         input >> comb;
     return input;
 }
+
+void Section_Basse::get_combinaison(std::vector<position> &pos) {
+    for (int i = 0 ;  i < section.size() ; ++i){
+        if (section[i].get_preview_score() != -1)
+        {
+            pos.push_back(position(i+6,section[i].get_preview_score()));
+        }
+    }
+}
+

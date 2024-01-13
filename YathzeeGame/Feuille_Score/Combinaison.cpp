@@ -4,6 +4,14 @@
 
 #include "Combinaison.h"
 
+position::position(const int p, const int s) :pos(p),score(s){
+}
+void position::affiche()
+{
+    std::cout<<"position : "<<pos<<std::endl<<"score : "<<score<<std::endl;
+}
+
+
 Combinaison::Combinaison(std::shared_ptr<Figure> f,std::string Desc) : figure(f),description(Desc) {};
 
 void Combinaison::setScore(Lancer & lancer) {
@@ -115,4 +123,11 @@ std::istream& operator>>(std::istream& input, Combinaison& comb)
         >> comb.score
         >> comb.preview_score;
     return input;
+}
+
+int Combinaison::get_preview_score() {
+    if(score == -1)
+        return preview_score;
+    else
+        return -1;
 }

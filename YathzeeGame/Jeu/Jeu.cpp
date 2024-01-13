@@ -74,13 +74,35 @@ Jeu::Jeu() : lancer(){
         } while (mode == 0);
 
 
-        for (unsigned int i = 1; i <= nb_joueurs; ++i)
+
+
+        for(unsigned int i = 1 ; i <= nb_joueurs ; ++i)
         {
             cout << "Joueur numero " << i << ", " << endl;
+            cout << "Type joueur : " << endl;
+            cout << "1 - Humain" << endl;
+            cout << "2 - Nicolas" << endl;
+            cout << "3 - Hakim" << endl;
+            int type = 0;
+            cin>>type;
+            if(type == 1){
+                std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu,0);
+                joueur.push_back(joueur1);
+            }else{
+                if(type== 2)
+                {
+                    std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu,1, false);
+                    joueur.push_back(joueur1);
+                }else{
+                    cout<<" Redoublement "<<endl;
+                    std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu,2, false);
+                    joueur.push_back(joueur1);
+                }
+            }
 
-            std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu);
-            joueur.push_back(joueur1);
         }
+
+
     }
 }
 
@@ -96,25 +118,26 @@ void Jeu::tourdejeu() {
             for (const auto& de : lancer.getDices()) {
                 std::cout << de.getValue() << " ";
             }
-
-            if (i < 2) {
-                cout << endl;
-                j->affichePreview(lancer);
-                cout << endl << "Est-ce que ce lancer vous convient? (o/n)" << endl;
-                if (getPositiveAnswer())
-                    break;
-
-                short ind = 0;
-                for (const auto& de : lancer.getDices()) {
-                    ind++;
-                    if (de.isLocked())
-                        cout << "Voulez-vous liberer le de " << ind << "? (o/n)" << endl;
-                    else
-                        cout << "Voulez-vous bloquer le de " << ind << "? (o/n)" << endl;
+            if(j->is_human()) {
+                if (i < 2) {
+                    cout << endl;
+                    j->affichePreview(lancer);
+                    cout << endl << "Est-ce que ce lancer vous convient? (o/n)" << endl;
                     if (getPositiveAnswer())
-                        lancer.lockOrUnlockDice(ind-1);
+                        break;
+
+                    short ind = 0;
+                    for (const auto &de: lancer.getDices()) {
+                        ind++;
+                        if (de.isLocked())
+                            cout << "Voulez-vous liberer le de " << ind << "? (o/n)" << endl;
+                        else
+                            cout << "Voulez-vous bloquer le de " << ind << "? (o/n)" << endl;
+                        if (getPositiveAnswer())
+                            lancer.lockOrUnlockDice(ind - 1);
+                    }
+                    clear_screen();
                 }
-                clear_screen();
             }
         }
         clear_screen();
@@ -129,20 +152,24 @@ void Jeu::tourdejeu() {
         unsigned int position;
 
         if(mode_jeu!=3 && mode_jeu!=4) {
-            j->affichePreview(lancer);
-            do {
-                cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
-                cin >> position;
-                if (cin.fail()) {
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Saisie invalide. Entrez une position." << endl;
-                    continue;
-                }
-                is_possible = j->setScore(lancer, position-1);
+            if (!j->is_human()) {
+                j->setScore(lancer, j->get_pos_bot(lancer));
+            } else {
+                j->affichePreview(lancer);
+                do {
+                    cout << "Quelle combinaison souhaitez-vous jouer?" << endl;
+                    cin >> position;
+                    if (cin.fail()) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "Saisie invalide. Entrez une position." << endl;
+                        continue;
+                    }
+                    is_possible = j->setScore(lancer, position - 1);
 
-            } while (!is_possible);
-            clear_screen();
+                } while (!is_possible);
+                clear_screen();
+            }
         }
         else
         {
@@ -163,7 +190,7 @@ void Jeu::tourdejeu() {
 
 void Jeu::clear_screen()
 {
-    system("cls||clear");
+    //system("cls||clear");
 }
 
 bool Jeu::getPositiveAnswer()

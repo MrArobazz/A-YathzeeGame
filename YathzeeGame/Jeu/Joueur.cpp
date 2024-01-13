@@ -5,12 +5,17 @@
 #include "Joueur.h"
 using namespace std;
 
-Joueur::Joueur(unsigned int mode) : feuille_score(mode) {
+Joueur::Joueur(unsigned int mode , unsigned int bot, bool human) : feuille_score(mode),is_humain(human) {
     mode_jeu = mode;
-    cout << "Entrez votre Nom" << endl;
-    cin >> name;
-
+    if (bot == 0) {
+        cout << "Entrez votre Nom" << endl;
+        cin >> name;
+    } else if (bot == 1) {
+        name = "Nicolas";
+    } else
+        name = "Hakim";
 }
+
 
 bool Joueur::setScore(Lancer &lancer, unsigned int position) {
     return feuille_score.setScore(lancer,position);
@@ -63,4 +68,12 @@ std::istream& operator>>(std::istream& input, Joueur& j)
         >> j.mode_jeu
         >> j.feuille_score;
     return input;
+}
+
+const bool Joueur::is_human() {
+    return is_humain;
+}
+
+int Joueur::get_pos_bot(Lancer & lancer) {
+    return feuille_score.get_Bot_pos(lancer);
 }

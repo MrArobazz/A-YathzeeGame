@@ -35,6 +35,8 @@ public:
     void resetPreviewScores();
     void affichePreview(unsigned int position);
 
+    void get_combinaison(std::vector<position>&pos);
+
     friend std::ostream& operator<<(std::ostream& out, const Section_Basse& sb);
     friend std::istream& operator>>(std::istream& input, Section_Basse& sb);
 };

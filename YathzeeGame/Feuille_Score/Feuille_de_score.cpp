@@ -139,3 +139,45 @@ std::istream& operator>>(std::istream& input, Feuille_de_score& fds)
         >> fds.section_b;
     return input;
 }
+
+void Feuille_de_score::get_combinaison(std::vector<position> &pos) {
+    section_h.get_combinaison(pos);
+    section_b.get_combinaison(pos);
+}
+
+int Feuille_de_score::get_Bot_pos(Lancer & lancer) {
+    std::vector<position> pos;
+    for (int positions = 0; positions < 13; positions++) {
+        if (positions < 6) {
+            if (section_h.getScorePosition(positions) == -1) {
+                section_h.setPreviewScore(lancer, positions);
+            }
+        } else {
+            if (!section_b.islocked()) {
+                if (section_b.getScorePosition(positions - 6) == -1) {
+                    section_b.setPreviewScore(lancer, positions - 6);
+                }
+            }
+        }
+    }
+    section_h.get_combinaison(pos);
+    section_b.get_combinaison(pos);
+
+    section_b.resetPreviewScores();
+    section_h.resetPreviewScores();
+    return max(pos);
+}
+
+int Feuille_de_score::max(const std::vector<position> &pos) {
+    int pos_max = 0;
+    int max = -1 ;
+    for(position p : pos )
+    {
+        if(p.score>=max) {
+            pos_max = p.pos;
+            max = p.score;
+        }
+
+    }
+    return pos_max;
+}

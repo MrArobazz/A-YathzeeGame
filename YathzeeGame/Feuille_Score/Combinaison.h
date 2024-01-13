@@ -18,6 +18,16 @@
 #include "../Figures/Yams.h"
 #include <memory>
 
+
+class position{
+public:
+    const int pos;
+    const int score;
+    position(const int p , const int s);
+    void affiche();
+};
+
+
 class Combinaison {
 
 private:
@@ -38,6 +48,7 @@ public:
     void setPreviewCarre(Lancer& lancer);
     void setFig(std::shared_ptr<Figure> f);
 
+    int get_preview_score();
 
     std::string getDesc();
     void affiche();

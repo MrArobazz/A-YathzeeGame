@@ -8,11 +8,12 @@
 class Joueur {
 private:
     Feuille_de_score feuille_score;
-    std::string name;
+    std::string name = "Nicolas";
     unsigned int mode_jeu;
+    const bool is_humain;
 public:
-    Joueur(unsigned int mode);
-    Joueur() : feuille_score(), name("MIIIIICHEEEEEEL"), mode_jeu(1) {}; // pour eviter le usage du constructeur au dessus (qui utilise cin) pour la save
+    Joueur(unsigned int mode,unsigned int bot ,bool human = true);
+    Joueur() : feuille_score(), name("MIIIIICHEEEEEEL"), mode_jeu(1), is_humain(true){}; // pour eviter le usage du constructeur au dessus (qui utilise cin) pour la save
 
     bool setScore(Lancer & lancer , unsigned int position);
     void setScore(Lancer & lancer);
@@ -21,6 +22,10 @@ public:
     void affiche();
 
     void affichePreview(Lancer& lancer);
+
+    int get_pos_bot(Lancer & lancer);
+
+    const bool is_human();
 
     ~Joueur();
 
