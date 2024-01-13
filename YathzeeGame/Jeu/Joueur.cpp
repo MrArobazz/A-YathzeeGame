@@ -77,3 +77,7 @@ const bool Joueur::is_human() {
 int Joueur::get_pos_bot(Lancer & lancer) {
     return feuille_score.get_Bot_pos(lancer);
 }
+
+int Joueur::getScoreLancer(Lancer & lancer) {
+    return feuille_score.getScoreLancer(lancer);
+}

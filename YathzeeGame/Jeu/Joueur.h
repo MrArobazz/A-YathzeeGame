@@ -24,6 +24,7 @@ public:
     void affichePreview(Lancer& lancer);
 
     int get_pos_bot(Lancer & lancer);
+    int getScoreLancer(Lancer & lancer);
 
     const bool is_human();
 

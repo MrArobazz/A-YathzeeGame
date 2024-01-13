@@ -138,6 +138,10 @@ void Jeu::tourdejeu() {
                     }
                     clear_screen();
                 }
+            }else{
+                std::cout<<"Le score du lancer est "<<j->getScoreLancer(lancer)<<std::endl;
+                if((j->getScoreLancer(lancer)>=52 && (mode_jeu == 1))|| ((j->getScoreLancer(lancer)>15) && (mode_jeu !=1)))
+                    break;
             }
         }
         clear_screen();

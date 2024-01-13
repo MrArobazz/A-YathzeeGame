@@ -16,6 +16,7 @@ private:
     Section_Haute section_h;
     Section_Basse section_b;
     bool mode_difficil = false;
+    int scorelancer = 0;
 
 public:
     Feuille_de_score(unsigned int mode);
@@ -31,6 +32,10 @@ public:
     void get_combinaison(std::vector<position>&pos);
     int get_Bot_pos(Lancer & lancer);
     int max(const std::vector<position> &pos);
+
+    void setScoreLancer(std::vector<position> &pos);
+    int getScoreLancer(Lancer & lancer);
+
 
     friend std::ostream& operator<<(std::ostream& out, const Feuille_de_score& fds);
     friend std::istream& operator>>(std::istream& input, Feuille_de_score& fds);
