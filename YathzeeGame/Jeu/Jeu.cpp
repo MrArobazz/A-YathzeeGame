@@ -115,10 +115,11 @@ void Jeu::tourdejeu() {
         for (int i = 0; i <=2; ++i) {
             lancer.rollDices();
 
-            for (const auto& de : lancer.getDices()) {
-                std::cout << de.getValue() << " ";
-            }
+            
             if(j->is_human()) {
+                for (const auto& de : lancer.getDices()) {
+                    std::cout << de.getValue() << " ";
+                }
                 if (i < 2) {
                     cout << endl;
                     j->affichePreview(lancer);
@@ -194,7 +195,7 @@ void Jeu::tourdejeu() {
 
 void Jeu::clear_screen()
 {
-    //system("cls||clear");
+    system("cls||clear");
 }
 
 bool Jeu::getPositiveAnswer()
