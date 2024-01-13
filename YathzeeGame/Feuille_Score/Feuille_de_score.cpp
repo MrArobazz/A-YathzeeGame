@@ -22,7 +22,7 @@ Feuille_de_score::Feuille_de_score(unsigned int mode):section_h(),section_b(){
 
 }
 
-bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position) {
+bool Feuille_de_score::setScore(Lancer &lancer, unsigned int position){
     if(position < 13 )
     {
         Yams y;
@@ -59,7 +59,7 @@ void Feuille_de_score::majpos()
 }
 
 
-int Feuille_de_score::getScore() {
+int Feuille_de_score::getScore() const{
     return score_total;
 }
 

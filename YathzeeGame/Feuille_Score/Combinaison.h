@@ -36,23 +36,23 @@ private:
     const std::string description;
     int score = -1;
     int preview_score = 0;
-    int mean_score = 0;
+    const int mean_score;
 
 public:
 
     Combinaison(std::shared_ptr<Figure> f,std::string Desc, int mean_score);
-    void setScore(Lancer& lancer);
-    void setPreviewScore(Lancer& lancer);
+    void setScore(const Lancer& lancer);
+    void setPreviewScore(const Lancer& lancer);
     void resetPreviewScore();
-    int getScore();
-    void setPreviewBrelan(Lancer& lancer);
-    void setPreviewCarre(Lancer& lancer);
+    int getScore() const;
+    void setPreviewBrelan(const Lancer& lancer);
+    void setPreviewCarre(const Lancer& lancer);
     void setFig(std::shared_ptr<Figure> f);
 
     int getScoreMean() const;
-    int get_preview_score();
+    int get_preview_score() const ;
 
-    std::string getDesc();
+    std::string getDesc() const;
     void affiche();
     void affichePreview();
 

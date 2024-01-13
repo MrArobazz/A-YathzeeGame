@@ -182,11 +182,11 @@ void Section_Basse::setScore(Lancer &lancer, unsigned int position) {
     score_section += section[position].getScore();
 }
 
-int Section_Basse::getScore() {
+int Section_Basse::getScore()const {
     return score_section;
 }
 
-int Section_Basse::getScorePosition(unsigned int position) {
+int Section_Basse::getScorePosition(unsigned int position)const {
     return section[position].getScore();
 }
 
@@ -245,7 +245,7 @@ void Section_Basse::bonusYams() {
     }
 }
 
-bool Section_Basse::islocked() {
+bool Section_Basse::islocked() const {
     return locked;
 }
 

@@ -23,12 +23,12 @@ public:
 
 
     void setScore(Lancer & lancer, unsigned int position);
-    int getScore();
-    int getScorePosition(unsigned int position);
+    int getScore()const;
+    int getScorePosition(unsigned int position)const;
     int getScoreMean(unsigned int position) const;
     void affiche();
     void bonusYams();
-    bool islocked();
+    bool islocked()const;
     void unlock();
     void lock();
 

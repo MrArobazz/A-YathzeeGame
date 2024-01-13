@@ -17,16 +17,16 @@ class Section_Haute {
         Section_Haute();
 
 
-        void setScore(Lancer & lancer , unsigned int position);
-        int getScore();
-        int getScorePosition(unsigned int position);
+        void setScore(const Lancer & lancer , unsigned int position);
+        int getScore() const;
+        int getScorePosition(unsigned int position)const;
         void affiche();
 
-        void setPreviewScore(Lancer& lancer, unsigned int position);
+        void setPreviewScore(const Lancer& lancer, unsigned int position);
         void resetPreviewScores();
         void affichePreview(unsigned int position);
 
-        bool is_full();
+        bool is_full()const;
         int getScoreMean(unsigned int position) const;
         void get_combinaison(std::vector<position> & pos);
 

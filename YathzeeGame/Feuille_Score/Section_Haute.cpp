@@ -28,7 +28,7 @@ Section_Haute::Section_Haute() {
 
 }
 
-void Section_Haute::setScore(Lancer &lancer , unsigned int position) {
+void Section_Haute::setScore(const Lancer &lancer , unsigned int position) {
         section[position].setScore(lancer);
         score_section += section[position].getScore();
         nb_combinaison_restante--;
@@ -39,11 +39,11 @@ void Section_Haute::setScore(Lancer &lancer , unsigned int position) {
     }
 }
 
-int Section_Haute::getScore() {
+int Section_Haute::getScore()const {
     return score_section;
 }
 
-int Section_Haute::getScorePosition(unsigned int position) {
+int Section_Haute::getScorePosition(unsigned int position) const{
     return section[position].getScore();
 }
 
@@ -60,7 +60,7 @@ void Section_Haute::affiche() {
 
 }
 
-void Section_Haute::setPreviewScore(Lancer& lancer, unsigned int position)
+void Section_Haute::setPreviewScore(const Lancer& lancer, unsigned int position)
 {
     section[position].setPreviewScore(lancer);
 }
@@ -77,7 +77,7 @@ void Section_Haute::affichePreview(unsigned int position)
     section[position].affichePreview();
 }
 
-bool Section_Haute::is_full() {
+bool Section_Haute::is_full() const {
     return nb_combinaison_restante == 0 ;
 }
 

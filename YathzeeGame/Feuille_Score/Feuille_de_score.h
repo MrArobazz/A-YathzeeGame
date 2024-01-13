@@ -23,7 +23,7 @@ public:
     Feuille_de_score() : section_h(), section_b() {}; // pour eviter le usage du constructeur au dessus (qui utilise cin) pour la save
 
     bool setScore(Lancer & lancer , unsigned int position);
-    int getScore();
+    int getScore()const;
     void affiche();
     void affichePreview(Lancer& lancer);
     int getPositionActuelle();

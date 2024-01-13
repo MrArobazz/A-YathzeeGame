@@ -81,12 +81,22 @@ std::istream& operator>>(std::istream& input, Joueur& j)
 int Joueur::max(const std::vector<position> &pos) {
     int pos_max = 0;
     int max = -1 ;
+    float score_moy = 0;
     for(position p : pos )
     {
-        if(p.score>=max) {
-            pos_max = p.pos;
-            max = p.score;
+        if(type_joueur==2){
+            if((p.score>=max) && ( ((float)p.score/(float)p.pos)>score_moy))  {
+                pos_max = p.pos;
+                max = p.score;
+                score_moy = (float)max/(float)pos_max;
+            }
+        }else{
+            if(p.score>=max){
+                pos_max = p.pos;
+                max = p.score;
+            }
         }
+
 
     }
     return pos_max;

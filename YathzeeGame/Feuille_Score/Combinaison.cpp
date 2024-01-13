@@ -14,11 +14,11 @@ void position::affiche()
 
 Combinaison::Combinaison(std::shared_ptr<Figure> f,std::string Desc, int mean_score) : figure(f),description(Desc), mean_score(mean_score) {};
 
-void Combinaison::setScore(Lancer & lancer) {
+void Combinaison::setScore(const Lancer & lancer) {
     score = figure ? figure->calculerPoints(lancer) : 0;
 }
 
-void Combinaison::setPreviewScore(Lancer& lancer)
+void Combinaison::setPreviewScore(const Lancer& lancer)
 {
     if (score == -1)
         preview_score = figure->calculerPoints(lancer);
@@ -29,11 +29,11 @@ void Combinaison::resetPreviewScore()
     preview_score = 0;
 }
 
-int Combinaison::getScore() {
+int Combinaison::getScore() const{
     return score;
 }
 
-void Combinaison::setPreviewBrelan(Lancer& lancer)
+void Combinaison::setPreviewBrelan(const Lancer& lancer)
 {
     int desTries[5]{};
     int ind = 0;
@@ -65,7 +65,7 @@ void Combinaison::setPreviewBrelan(Lancer& lancer)
     preview_score = valeur_brelan * 3;
 }
 
-void Combinaison::setPreviewCarre(Lancer& lancer)
+void Combinaison::setPreviewCarre(const Lancer& lancer)
 {
     int desTries[5]{};
     int ind = 0;
@@ -89,7 +89,7 @@ void Combinaison::setPreviewCarre(Lancer& lancer)
     preview_score = valeur_carre * 4;
 }
 
-std::string Combinaison::getDesc() {
+std::string Combinaison::getDesc() const {
     return description;
 }
 
@@ -125,7 +125,7 @@ std::istream& operator>>(std::istream& input, Combinaison& comb)
     return input;
 }
 
-int Combinaison::get_preview_score() {
+int Combinaison::get_preview_score() const {
     if(score == -1)
         return preview_score;
     else
