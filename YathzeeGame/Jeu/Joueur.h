@@ -24,6 +24,10 @@ public:
     std::string getName();
     void affiche();
 
+    int get_type();
+
+    bool isok(Lancer & lancer);
+
     std::string getCitation();
 
     void affichePreview(Lancer& lancer);

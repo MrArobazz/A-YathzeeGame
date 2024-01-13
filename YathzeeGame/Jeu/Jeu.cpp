@@ -139,7 +139,7 @@ void Jeu::tourdejeu() {
                     clear_screen();
                 }
             }else{
-                if((j->getScoreLancer(lancer)>=52 && (mode_jeu == 1)) || ((j->getScoreLancer(lancer)>15) && (mode_jeu !=1)))
+                if((j->get_type()==1 && ((j->getScoreLancer(lancer)>=52 && (mode_jeu == 1)) || ((j->getScoreLancer(lancer)>15) && (mode_jeu !=1)))) || (j->get_type()==2 && j->isok(lancer)))
                     break;
             }
         }
