@@ -36,10 +36,11 @@ private:
     const std::string description;
     int score = -1;
     int preview_score = 0;
+    int mean_score = 0;
 
 public:
 
-    Combinaison(std::shared_ptr<Figure> f,std::string Desc) ;
+    Combinaison(std::shared_ptr<Figure> f,std::string Desc, int mean_score);
     void setScore(Lancer& lancer);
     void setPreviewScore(Lancer& lancer);
     void resetPreviewScore();

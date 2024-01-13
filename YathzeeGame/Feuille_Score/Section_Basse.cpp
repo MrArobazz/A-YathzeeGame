@@ -20,13 +20,13 @@ Section_Basse::Section_Basse() {
     std::shared_ptr<Figure> figure7 = std::make_shared<Chance>();
     figures.push_back(figure7);
 
-    section.push_back(Combinaison(figure1 , "Brelan (somme des 3 des) :"));
-    section.push_back(Combinaison(figure2 , "Carre (somme des 4 des) :"));
-    section.push_back(Combinaison(figure3 , "Full :"));
-    section.push_back(Combinaison(figure4 , "Petite Suite :"));
-    section.push_back(Combinaison(figure5 , "Grande Suite : "));
-    section.push_back(Combinaison(figure6 , "Yams :"));
-    section.push_back(Combinaison(figure7 , "Chance (Somme des 5 des) :"));
+    section.push_back(Combinaison(figure1 , "Brelan (somme des 3 des) :", 9));
+    section.push_back(Combinaison(figure2 , "Carre (somme des 4 des) :", 12));
+    section.push_back(Combinaison(figure3 , "Full :", 25));
+    section.push_back(Combinaison(figure4 , "Petite Suite :", 30));
+    section.push_back(Combinaison(figure5 , "Grande Suite : ", 40));
+    section.push_back(Combinaison(figure6 , "Yams :", 50));
+    section.push_back(Combinaison(figure7 , "Chance (Somme des 5 des) :", 15));
 }
 
 

@@ -12,7 +12,7 @@ void position::affiche()
 }
 
 
-Combinaison::Combinaison(std::shared_ptr<Figure> f,std::string Desc) : figure(f),description(Desc) {};
+Combinaison::Combinaison(std::shared_ptr<Figure> f,std::string Desc, int mean_score) : figure(f),description(Desc), mean_score(mean_score) {};
 
 void Combinaison::setScore(Lancer & lancer) {
     score = figure ? figure->calculerPoints(lancer) : 0;

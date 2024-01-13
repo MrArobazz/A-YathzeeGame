@@ -18,12 +18,12 @@ Section_Haute::Section_Haute() {
     std::shared_ptr<Figure> figure6 = std::make_shared<Six>();
     figures.push_back(figure6);
 
-    section.push_back(Combinaison(figure1, "Somme des as obtenus :"));
-    section.push_back(Combinaison(figure2 , "Somme des deux obtenus :"));
-    section.push_back(Combinaison(figure3 , "Somme des trois obtenus :"));
-    section.push_back(Combinaison(figure4 , "Somme des quatre obtenus :"));
-    section.push_back(Combinaison(figure5 , "Somme des cinq obtenus :"));
-    section.push_back(Combinaison(figure6 , "Somme des six obtenus :"));
+    section.push_back(Combinaison(figure1, "Somme des as obtenus :", 3));
+    section.push_back(Combinaison(figure2 , "Somme des deux obtenus :", 6));
+    section.push_back(Combinaison(figure3 , "Somme des trois obtenus :", 9));
+    section.push_back(Combinaison(figure4 , "Somme des quatre obtenus :", 12));
+    section.push_back(Combinaison(figure5 , "Somme des cinq obtenus :", 15));
+    section.push_back(Combinaison(figure6 , "Somme des six obtenus :", 18));
 
 
 }
