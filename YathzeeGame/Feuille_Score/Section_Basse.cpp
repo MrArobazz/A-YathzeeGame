@@ -196,6 +196,7 @@ void Section_Basse::affiche() {
         std::cout<<7+i<<"-";
         section[i].affiche();
     }
+    std::cout << "Score Section Basse : " << score_section << std::endl;
 }
 
 void Section_Basse::setPreviewScore(Lancer& lancer, unsigned int position)
