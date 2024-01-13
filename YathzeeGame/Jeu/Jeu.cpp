@@ -94,7 +94,6 @@ Jeu::Jeu() : lancer(){
                     std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu,1, false);
                     joueur.push_back(joueur1);
                 }else{
-                    cout<<" Redoublement "<<endl;
                     std::shared_ptr<Joueur> joueur1 = std::make_shared<Joueur>(mode_jeu,2, false);
                     joueur.push_back(joueur1);
                 }
@@ -184,16 +183,11 @@ void Jeu::tourdejeu() {
         cout << "Voici votre feuille de score a la fin du tour." << endl;
         j->affiche();
         lancer.remiseAzeroDe();
+        if (!j->is_human())
+            std::cout << j->getName() << " : " << j->getCitation() << std::endl << std::endl << std::endl;
         cout << "Confirmez le passage au prochain joueur ou tour. (o)" << endl;
         while (!getPositiveAnswer()) {};
         clear_screen();
-        if(!j->is_human())
-        {
-            std::cout<<j->getCitation()<<std::endl<<std::endl<<std::endl;
-            cout << "Voulez-vous réellement continuer à m'affronter ?  (o)" << endl;
-            while (!getPositiveAnswer()) {};
-            clear_screen();
-        }
     }
     tour++;
 
