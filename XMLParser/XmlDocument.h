@@ -10,6 +10,12 @@ public:
 	XmlDocument(const XmlDocument& other);
 	XmlDocument& operator=(const XmlDocument&);
 
-	XmlNode* createElement(const std::string& name);
+	XmlNode createElement(const std::string& name);
+	void addElementTree(XmlNode&);
+	void removeElementTree();
+	void replaceElementTree(XmlNode&);
+
+	void save(std::ostream& stream);
+	void save(std::string& uri);
 };
 
