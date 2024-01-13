@@ -1,7 +1,7 @@
 #include "pch.h"
 #include <array>
-#include "../../COO_PROJET_CAILLAUD_BEN_MOHAND/YathzeeGame/Feuille_Score/Feuille_de_score.h"
-#include"../../COO_PROJET_CAILLAUD_BEN_MOHAND/YathzeeGame/Lancer.h"
+#include "Feuille_Score/Feuille_de_score.h"
+#include "Lancer.h"
 
 TEST(TestLancer, LancerNormal) {
     Lancer l;

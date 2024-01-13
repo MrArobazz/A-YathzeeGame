@@ -18,36 +18,43 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\YathzeeGame\play.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YathzeeGame\YathzeeGame.vcxproj">
+      <Project>{eaca575a-0dbd-4c0a-98f7-27a1cf1eaa82}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{EACA575A-0DBD-4C0A-98F7-27A1CF1EAA82}</ProjectGuid>
-    <RootNamespace>COOPROJETCAILLAUDBENMOHAND</RootNamespace>
+    <ProjectGuid>{310b3d27-3796-4e81-ac49-8978262980db}</ProjectGuid>
+    <RootNamespace>YathzeeGameExe</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>YathzeeGame</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -77,6 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Calen\source\repos\COO_PROJET_CAILLAUD_BEN_MOHAND\YathzeeGame;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -91,6 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Calen\source\repos\COO_PROJET_CAILLAUD_BEN_MOHAND\YathzeeGame;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,7 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Calen\source\repos\COO_PROJET_CAILLAUD_BEN_MOHAND\YathzeeGame;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Calen\source\repos\COO_PROJET_CAILLAUD_BEN_MOHAND\YathzeeGame;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,52 +138,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Feuille_Score\Combinaison.cpp" />
-    <ClCompile Include="Feuille_Score\Feuille_de_score.cpp" />
-    <ClCompile Include="Feuille_Score\Section_Basse.cpp" />
-    <ClCompile Include="Feuille_Score\Section_Haute.cpp" />
-    <ClCompile Include="Figures\Chance.cpp" />
-    <ClCompile Include="Figures\Carre.cpp" />
-    <ClCompile Include="Figures\Brelan.cpp" />
-    <ClCompile Include="Figures\Cinq.cpp" />
-    <ClCompile Include="Figures\Deux.cpp" />
-    <ClCompile Include="Figures\Full.cpp" />
-    <ClCompile Include="Figures\PetiteSuite.cpp" />
-    <ClCompile Include="Figures\GrandeSuite.cpp" />
-    <ClCompile Include="Jeu\Jeu.cpp" />
-    <ClCompile Include="Jeu\Joueur.cpp" />
-    <ClCompile Include="Figure.cpp" />
-    <ClCompile Include="Figures\Un.cpp" />
-    <ClCompile Include="Lancer.cpp" />
-    <ClCompile Include="Figures\Trois.cpp" />
-    <ClCompile Include="Figures\Quatre.cpp" />
-    <ClCompile Include="Figures\Six.cpp" />
-    <ClCompile Include="Figures\Yams.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Feuille_Score\Combinaison.h" />
-    <ClInclude Include="Feuille_Score\Feuille_de_score.h" />
-    <ClInclude Include="Feuille_Score\Section_Basse.h" />
-    <ClInclude Include="Feuille_Score\Section_Haute.h" />
-    <ClInclude Include="Figures\Chance.h" />
-    <ClInclude Include="Figures\Carre.h" />
-    <ClInclude Include="Figures\Brelan.h" />
-    <ClInclude Include="Figures\Cinq.h" />
-    <ClInclude Include="Figures\Deux.h" />
-    <ClInclude Include="Figure.h" />
-    <ClInclude Include="Figures\Un.h" />
-    <ClInclude Include="Figures\Full.h" />
-    <ClInclude Include="Figures\GrandeSuite.h" />
-    <ClInclude Include="Jeu\Jeu.h" />
-    <ClInclude Include="Jeu\Joueur.h" />
-    <ClInclude Include="Lancer.h" />
-    <ClInclude Include="Figures\Trois.h" />
-    <ClInclude Include="Figures\Quatre.h" />
-    <ClInclude Include="Figures\Six.h" />
-    <ClInclude Include="Figures\PetiteSuite.h" />
-    <ClInclude Include="Figures\Yams.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

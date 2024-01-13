@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YathzeeGame", "YathzeeGame\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YathzeeGame_Tests", "YathzeeGame_Tests\YathzeeGame_Tests.vcxproj", "{21376F64-2FC2-4013-A764-EBD3BA309108}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "YathzeeGame_Exe", "YathzeeGame_Exe\YathzeeGame_Exe.vcxproj", "{310B3D27-3796-4E81-AC49-8978262980DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{21376F64-2FC2-4013-A764-EBD3BA309108}.Release|x64.Build.0 = Release|x64
 		{21376F64-2FC2-4013-A764-EBD3BA309108}.Release|x86.ActiveCfg = Release|Win32
 		{21376F64-2FC2-4013-A764-EBD3BA309108}.Release|x86.Build.0 = Release|Win32
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Debug|x64.ActiveCfg = Debug|x64
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Debug|x64.Build.0 = Debug|x64
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Debug|x86.ActiveCfg = Debug|Win32
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Debug|x86.Build.0 = Debug|Win32
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Release|x64.ActiveCfg = Release|x64
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Release|x64.Build.0 = Release|x64
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Release|x86.ActiveCfg = Release|Win32
+		{310B3D27-3796-4E81-AC49-8978262980DB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
