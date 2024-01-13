@@ -113,3 +113,7 @@ void Section_Haute::get_combinaison(std::vector<position> &pos) {
         }
     }
 }
+
+int Section_Haute::getScoreMean(unsigned int position) const {
+    return section[position].getScoreMean();
+}

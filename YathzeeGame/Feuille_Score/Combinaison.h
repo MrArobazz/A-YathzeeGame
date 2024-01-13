@@ -49,6 +49,7 @@ public:
     void setPreviewCarre(Lancer& lancer);
     void setFig(std::shared_ptr<Figure> f);
 
+    int getScoreMean() const;
     int get_preview_score();
 
     std::string getDesc();

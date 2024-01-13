@@ -25,6 +25,7 @@ public:
     void setScore(Lancer & lancer, unsigned int position);
     int getScore();
     int getScorePosition(unsigned int position);
+    int getScoreMean(unsigned int position) const;
     void affiche();
     void bonusYams();
     bool islocked();

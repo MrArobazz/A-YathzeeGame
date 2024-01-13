@@ -146,8 +146,10 @@ void Feuille_de_score::get_combinaison(std::vector<position> &pos) {
 }
 
 
-int Feuille_de_score::get_Bot_pos(Lancer & lancer) {
-    std::vector<position> pos;
+
+
+
+void Feuille_de_score::get_Bot_pos(Lancer & lancer , std::vector<position> & pos) {
     for (int positions = 0; positions < 13; positions++) {
         if (positions < 6) {
             if (section_h.getScorePosition(positions) == -1) {
@@ -169,22 +171,10 @@ int Feuille_de_score::get_Bot_pos(Lancer & lancer) {
 
     setScoreLancer(pos);
 
-    return max(pos);
+
 }
 
-int Feuille_de_score::max(const std::vector<position> &pos) {
-    int pos_max = 0;
-    int max = -1 ;
-    for(position p : pos )
-    {
-        if(p.score>=max) {
-            pos_max = p.pos;
-            max = p.score;
-        }
 
-    }
-    return pos_max;
-}
 
 void Feuille_de_score::setScoreLancer(std::vector<position> &pos) {
     scorelancer = 0;
@@ -216,4 +206,14 @@ int Feuille_de_score::getScoreLancer(Lancer & lancer) {
     section_h.resetPreviewScores();
     setScoreLancer(pos);
     return scorelancer;
+}
+
+int Feuille_de_score::getScoreMean(unsigned int position) const {
+    if(position<6)
+    {
+        return section_h.getScoreMean(position);
+    }else
+    {
+        return section_b.getScoreMean((position-6));
+    }
 }

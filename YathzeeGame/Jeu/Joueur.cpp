@@ -74,14 +74,49 @@ std::istream& operator>>(std::istream& input, Joueur& j)
     return input;
 }
 
-const bool Joueur::is_human() {
+ bool Joueur::is_human() const {
     return is_humain;
 }
 
+int Joueur::max(const std::vector<position> &pos) {
+    int pos_max = 0;
+    int max = -1 ;
+    for(position p : pos )
+    {
+        if(p.score>=max) {
+            pos_max = p.pos;
+            max = p.score;
+        }
+
+    }
+    return pos_max;
+}
 int Joueur::get_pos_bot(Lancer & lancer) {
-    return feuille_score.get_Bot_pos(lancer);
+    std::vector<position> pos;
+    feuille_score.get_Bot_pos(lancer ,pos);
+    if(type_joueur == 1)
+        return max(pos);
+    else
+        return maxhakim(pos);
 }
 
 int Joueur::getScoreLancer(Lancer & lancer) {
     return feuille_score.getScoreLancer(lancer);
+}
+
+int Joueur::maxhakim(const vector<position> &pos) {
+    std::vector<position> posH;
+    for(position p : pos)
+    {
+        if(p.score >= feuille_score.getScoreMean(p.pos)){
+            posH.push_back(p);
+        }
+    }
+    if(posH.size()>=1){
+        return max(posH);
+    }else
+    {
+        return max(pos);
+    }
+
 }

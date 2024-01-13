@@ -12,6 +12,9 @@ private:
     unsigned int mode_jeu;
     bool is_humain;
     unsigned int type_joueur;
+    int max(const std::vector<position> &pos);
+    int maxhakim(const std::vector<position> &pos);
+
 public:
     Joueur(unsigned int mode,unsigned int bot ,bool human = true);
     Joueur() : feuille_score(), name("MIIIIICHEEEEEEL"), mode_jeu(1), is_humain(true), type_joueur(0){}; // pour eviter le usage du constructeur au dessus (qui utilise cin) pour la save
@@ -24,10 +27,11 @@ public:
 
     void affichePreview(Lancer& lancer);
 
+
     int get_pos_bot(Lancer & lancer);
     int getScoreLancer(Lancer & lancer);
 
-    const bool is_human();
+    bool is_human() const;
 
     ~Joueur();
 

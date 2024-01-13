@@ -27,7 +27,7 @@ class Section_Haute {
         void affichePreview(unsigned int position);
 
         bool is_full();
-
+        int getScoreMean(unsigned int position) const;
         void get_combinaison(std::vector<position> & pos);
 
         friend std::ostream& operator<<(std::ostream& out, const Section_Haute& sh);

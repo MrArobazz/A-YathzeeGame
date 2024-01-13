@@ -30,8 +30,10 @@ public:
     void majpos();
 
     void get_combinaison(std::vector<position>&pos);
-    int get_Bot_pos(Lancer & lancer);
-    int max(const std::vector<position> &pos);
+    void get_Bot_pos(Lancer & lancer, std::vector<position> &pos);
+
+
+    int getScoreMean(unsigned int position) const;
 
     void setScoreLancer(std::vector<position> &pos);
     int getScoreLancer(Lancer & lancer);

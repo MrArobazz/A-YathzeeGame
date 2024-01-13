@@ -131,3 +131,7 @@ int Combinaison::get_preview_score() {
     else
         return -1;
 }
+
+int Combinaison::getScoreMean() const {
+    return mean_score;
+}

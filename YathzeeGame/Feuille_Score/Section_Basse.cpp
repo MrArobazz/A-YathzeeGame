@@ -20,8 +20,8 @@ Section_Basse::Section_Basse() {
     std::shared_ptr<Figure> figure7 = std::make_shared<Chance>();
     figures.push_back(figure7);
 
-    section.push_back(Combinaison(figure1 , "Brelan (somme des 3 des) :", 9));
-    section.push_back(Combinaison(figure2 , "Carre (somme des 4 des) :", 12));
+    section.push_back(Combinaison(figure1 , "Brelan (somme des 3 des) :", 10));
+    section.push_back(Combinaison(figure2 , "Carre (somme des 4 des) :", 14));
     section.push_back(Combinaison(figure3 , "Full :", 25));
     section.push_back(Combinaison(figure4 , "Petite Suite :", 30));
     section.push_back(Combinaison(figure5 , "Grande Suite : ", 40));
@@ -288,5 +288,9 @@ void Section_Basse::get_combinaison(std::vector<position> &pos) {
             pos.push_back(position(i+6,section[i].get_preview_score()));
         }
     }
+}
+
+int Section_Basse::getScoreMean(unsigned int position) const{
+    return section[position].getScoreMean();
 }
 
