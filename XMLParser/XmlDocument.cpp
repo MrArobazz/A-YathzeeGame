@@ -41,12 +41,26 @@ void XmlDocument::replaceElementTree(XmlNode& newRoot)
     elementTree = new XmlNode(newRoot);
 }
 
-void XmlDocument::save(std::ostream& stream)
+bool XmlDocument::save(std::ofstream& file) const
 {
-
+    if (file.is_open()) {
+        file << *this;
+        file.close();
+        return true;
+    }
+    return false;
 }
 
-void XmlDocument::save(std::string& uri)
+bool XmlDocument::save(std::string& uri) const
 {
+    std::ofstream file(uri, std::ios::out);
+    return save(file);
+}
 
+std::ostream& operator<<(std::ostream& out, const XmlDocument& doc)
+{
+    if (doc.elementTree) {
+        out << "<?xml version = \"1.0\"?>";
+        out << 
+    }
 }

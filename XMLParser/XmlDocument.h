@@ -1,5 +1,7 @@
 #pragma once
 #include "XmlNode.h"
+#include <iostream>
+#include <fstream>
 
 class XmlDocument
 {
@@ -15,7 +17,9 @@ public:
 	void removeElementTree();
 	void replaceElementTree(XmlNode&);
 
-	void save(std::ostream& stream);
-	void save(std::string& uri);
+	bool save(std::ofstream& stream) const;
+	bool save(std::string& uri) const;
+
+	friend std::ostream& operator<<(std::ostream& out, const XmlDocument& doc);
 };
 

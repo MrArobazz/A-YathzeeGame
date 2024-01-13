@@ -34,3 +34,30 @@ XmlNode& XmlNode::operator=(const XmlNode& other)
 	nextSibling = new XmlNode(*other.nextSibling);
 	return *this;
 }
+
+void XmlNode::appendChild(XmlNode& newChild)
+{
+	if (childNodes.size() > 0)
+		*childNodes.back()->nextSibling = newChild;
+	childNodes.push_back(&newChild);
+}
+
+void XmlNode::insertBefore(XmlNode& newChild, XmlNode& refChild)
+{
+	unsigned int ind = 0;
+	for (auto cNode : childNodes) {
+		if (*cNode->nextSibling == refChild) {
+			cNode->nextSibling = &newChild;
+
+		}
+	}
+}
+
+void XmlNode::insertAfter(XmlNode& newChild, XmlNode& refChild)
+{
+}
+
+bool XmlNode::operator==(const XmlNode& other)
+{
+	return (name == other.name);
+}
