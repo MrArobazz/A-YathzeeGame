@@ -5,7 +5,7 @@
 #include "Joueur.h"
 using namespace std;
 
-Joueur::Joueur(unsigned int mode , unsigned int bot, bool human) : feuille_score(mode),is_humain(human) {
+Joueur::Joueur(unsigned int mode , unsigned int bot, bool human) : feuille_score(mode),is_humain(human),type_joueur(bot){
     mode_jeu = mode;
     if (bot == 0) {
         cout << "Entrez votre Nom" << endl;
@@ -55,7 +55,9 @@ std::ostream& operator<<(std::ostream& out, const Joueur& j)
 {
     out << "Joueur:"
         << " " << j.name
-        << " " << j.mode_jeu << endl;
+        << " " << j.mode_jeu
+        << " " << j.is_humain
+        << " " << j.type_joueur << endl;
     out << j.feuille_score;
     return out;
 }
@@ -66,6 +68,8 @@ std::istream& operator>>(std::istream& input, Joueur& j)
     input >> prefix
         >> j.name
         >> j.mode_jeu
+        >> j.is_humain
+        >> j.type_joueur
         >> j.feuille_score;
     return input;
 }
